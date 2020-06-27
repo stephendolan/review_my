@@ -38,15 +38,15 @@ class Marketing::IndexPage < AuthLayout
           end
           div class: "mt-8 max-w-2xl mx-auto" do
             ul class: "mt-10 space-y-10 list-none" do
-              icon_step(icon: "fas fa-feather-alt") do
+              icon_step(title: "Create", icon: "fas fa-feather-alt") do
                 text "It could be an email, text message, or any content that you want someone else to take a look at!"
               end
 
-              icon_step(icon: "fas fa-share") do
+              icon_step(title: "Share", icon: "fas fa-share") do
                 text "Share your text with any number of other folks who can give feedback. Don't worry, none of them will see others' feedback, so you'll get insight into how different people would revise your content."
               end
 
-              icon_step(icon: "fas fa-bullseye") do
+              icon_step(title: "Adapt", icon: "fas fa-bullseye") do
                 text "Review the feedback you've received, incoporate what you want, and ship it!"
               end
             end
@@ -56,7 +56,7 @@ class Marketing::IndexPage < AuthLayout
     end
   end
 
-  private def icon_step(icon)
+  private def icon_step(title, icon)
     li do
       div class: "flex" do
         div class: "flex-shrink-0" do
@@ -65,7 +65,7 @@ class Marketing::IndexPage < AuthLayout
           end
         end
         div class: "ml-4" do
-          h5 "Create", class: "text-lg leading-6 font-medium text-gray-900"
+          h5 title, class: "text-lg leading-6 font-medium text-gray-900"
           para class: "mt-2 text-base leading-6 text-gray-500" do
             yield
           end

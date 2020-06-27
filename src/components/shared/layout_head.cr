@@ -6,7 +6,7 @@ class Shared::LayoutHead < BaseComponent
   def render
     head do
       utf8_charset
-      title "My App - #{@page_title}"
+      title ["ReviewMy", (@page_title.empty? ? nil : @page_title)].compact.join(" - ")
       css_link asset("css/app.css"), data_turbolinks_track: "reload"
       js_link asset("js/app.js"), defer: "true", data_turbolinks_track: "reload"
       js_link src: "https://kit.fontawesome.com/5360e87fe2.js", crossorigin: "anonymous"
