@@ -18,17 +18,16 @@ abstract class MainLayout
     html lang: "en" do
       m Shared::LayoutHead, page_title: page_title, context: context
 
-      body do
+      body class: "flex flex-col min-h-screen" do
+        m Shared::Navbar, current_user: current_user
         m Shared::FlashMessages, context.flash
-        render_signed_in_user
-        content
+
+        section class: "flex-grow mx-10 my-6" do
+          content
+        end
+
+        m Shared::Footer
       end
     end
-  end
-
-  private def render_signed_in_user
-    text current_user.email
-    text " - "
-    link "Sign out", to: SignIns::Delete, flow_id: "sign-out-button"
   end
 end

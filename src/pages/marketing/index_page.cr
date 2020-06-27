@@ -3,7 +3,7 @@ class Marketing::IndexPage < AuthLayout
     div class: "px-3 lg:px-0" do
       div class: "relative bg-white overflow-hidden" do
         div class: "relative pt-6 pb-16 md:pb-20 lg:pb-24 xl:pb-32" do
-          div class: "mt-8 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-20 xl:mt-24" do
+          div class: "mt-8 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-12 xl:mt-24" do
             div class: "lg:grid lg:grid-cols-12 lg:gap-8" do
               div class: "sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left" do
                 h2 class: "mt-1 text-4xl tracking-tight leading-10 font-bold text-gray-900 sm:leading-none sm:text-6xl lg:text-5xl" do

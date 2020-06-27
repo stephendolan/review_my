@@ -15,11 +15,14 @@ abstract class AuthLayout
       m Shared::LayoutHead, page_title: page_title, context: context
 
       body class: "flex flex-col min-h-screen" do
+        m Shared::AuthNavbar
         m Shared::FlashMessages, context.flash
 
         section class: "flex-grow" do
           content
         end
+
+        m Shared::Footer
       end
     end
   end
