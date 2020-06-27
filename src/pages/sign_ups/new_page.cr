@@ -2,16 +2,29 @@ class SignUps::NewPage < AuthLayout
   needs operation : SignUpUser
 
   def content
-    h1 "Sign Up"
-    render_sign_up_form(@operation)
+    div class: "w-full sm:max-w-xs mx-auto mt-10" do
+      render_sign_up_form(@operation)
+    end
   end
 
   private def render_sign_up_form(op)
-    form_for SignUps::Create do
-      sign_up_fields(op)
-      submit "Sign Up", flow_id: "sign-up-button"
+    form_for SignUps::Create, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" do
+      h1 "Sign Up", class: "font-semibold text-lg text-center mt-2 mb-4"
+
+      div class: "space-y-4" do
+        sign_up_fields(op)
+      end
+
+      div class: "mt-4" do
+        div class: "flex items-center justify-between" do
+          submit "Sign Up", class: "bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer", flow_id: "sign-up-button"
+
+          link to: SignIns::New, class: "inline-block align-baseline font-bold text-sm text-teal-500 hover:text-teal-800" do
+            text "Sign in instead"
+          end
+        end
+      end
     end
-    link "Sign in instead", to: SignIns::New
   end
 
   private def sign_up_fields(op)

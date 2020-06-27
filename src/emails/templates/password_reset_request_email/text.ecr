@@ -1,3 +1,6 @@
-Please reset your password:
+A password reset has been requested for this email on https://reviewmy.email.
 
+If this wasn't you, no action is necessary and you can ignore this message.
+
+If this was you, please follow the link below to reset your password:
 <%= PasswordResets::New.url(@user.id, @token) %>

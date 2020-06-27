@@ -1,3 +1,6 @@
-<h1>Please reset your password</h1>
+<h3>A password reset has been requested for this email on https://reviewmy.email.</h3>
 
-<a href="<%= PasswordResets::New.url(@user.id, @token) %>">Reset password</a>
+<p>If this wasn't you, no action is necessary and you can ignore this message.</p>
+
+<p>If this was you, please follow the link below to reset your password:</p>
+<a href="<%= PasswordResets::New.url(@user.id, @token) %>">Reset password link</a>

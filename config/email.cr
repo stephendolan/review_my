@@ -8,7 +8,8 @@ BaseEmail.configure do |settings|
     send_grid_key = send_grid_key_from_env
     settings.adapter = Carbon::SendGridAdapter.new(api_key: send_grid_key)
   else
-    settings.adapter = Carbon::DevAdapter.new
+    send_grid_key = send_grid_key_from_env
+    settings.adapter = Carbon::SendGridAdapter.new(api_key: send_grid_key)
   end
 end
 
