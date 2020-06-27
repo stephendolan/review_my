@@ -14,7 +14,7 @@ abstract class AuthLayout
     html lang: "en" do
       m Shared::LayoutHead, page_title: page_title, context: context
 
-      body do
+      body class: "flex flex-col min-h-screen" do
         m Shared::FlashMessages, context.flash
 
         section class: "flex-grow" do
