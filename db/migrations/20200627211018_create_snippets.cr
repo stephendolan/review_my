@@ -5,7 +5,7 @@ class CreateSnippets::V20200627211018 < Avram::Migrator::Migration::V1
       primary_key id : UUID
       add slug : String, index: true, unique: true
       add title : String
-      add content : String
+      add content : JSON::Any
       add_belongs_to creator : User, on_delete: :cascade, foreign_key_type: UUID
       add_timestamps
     end
