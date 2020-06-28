@@ -58,9 +58,11 @@ export default class extends Controller {
         syntax: {
           highlight: (text) => hljs.highlightAuto(text).value,
         },
-        toolbar: this.toolbarOptions,
+        // toolbar: this.isReadonly ? null : this.toolbarOptions,
+        toolbar: this.isReadonly ? null : this.toolbarOptions,
       },
-      theme: "snow",
+      readOnly: this.isReadonly,
+      theme: this.theme,
     };
   }
 
@@ -80,5 +82,26 @@ export default class extends Controller {
 
       ["clean"], // remove formatting button
     ];
+  }
+
+  get isReadonly() {
+    const dataValue = this.data.get("readonly");
+
+    if (dataValue === "true") {
+      return true;
+    }
+
+    return false;
+  }
+
+  get theme() {
+    const defaultTheme = "snow";
+    const dataValue = this.data.get("theme");
+
+    if (dataValue !== null) {
+      return dataValue;
+    }
+
+    return defaultTheme;
   }
 }
