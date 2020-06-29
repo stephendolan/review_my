@@ -17,17 +17,17 @@ class SignIns::NewPage < AuthLayout
 
       div class: "mt-4" do
         div class: "flex items-center justify-between" do
-          submit "Sign In", class: "bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer", flow_id: "sign-in-button"
+          submit "Sign In", class: "bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer", flow_id: "sign-in-button"
 
           div do
             div do
-              link to: SignUps::New, class: "align-baseline font-bold text-sm text-teal-500 hover:text-teal-800" do
+              link to: SignUps::New, class: "align-baseline font-bold text-sm text-indigo-500 hover:text-indigo-800" do
                 text "Sign Up"
               end
             end
 
             div do
-              link to: PasswordResetRequests::New, class: "align-baseline font-bold text-sm text-teal-500 hover:text-teal-800" do
+              link to: PasswordResetRequests::New, class: "align-baseline font-bold text-sm text-indigo-500 hover:text-indigo-800" do
                 text "Reset Password"
               end
             end

@@ -14,10 +14,10 @@ class Marketing::IndexPage < AuthLayout
                 end
                 div class: "mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start" do
                   div class: "rounded-md shadow" do
-                    link "Get Started", to: SignUps::New, class: "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-teal-600 hover:bg-teal-500 hover:text-white focus:outline-none focus:shadow-outline md:py-4 md:text-lg md:px-10"
+                    link "Get Started", to: SignUps::New, class: "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 hover:text-white focus:outline-none focus:shadow-outline md:py-4 md:text-lg md:px-10"
                   end
                   div class: "ml-3 inline-flex" do
-                    link "Sign In", to: SignIns::New, class: "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-teal-600 hover:bg-teal-500 hover:text-white focus:outline-none focus:shadow-outline md:py-4 md:text-lg md:px-10"
+                    link "Sign In", to: SignIns::New, class: "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 hover:text-white focus:outline-none focus:shadow-outline md:py-4 md:text-lg md:px-10"
                   end
                 end
               end
@@ -60,7 +60,7 @@ class Marketing::IndexPage < AuthLayout
     li do
       div class: "flex" do
         div class: "flex-shrink-0" do
-          div class: "flex items-center justify-center h-12 w-12 rounded-md bg-teal-500 text-white" do
+          div class: "flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white" do
             i class: "#{icon} text-lg"
           end
         end

@@ -17,9 +17,9 @@ class SignUps::NewPage < AuthLayout
 
       div class: "mt-4" do
         div class: "flex items-center justify-between" do
-          submit "Sign Up", class: "bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer", flow_id: "sign-up-button"
+          submit "Sign Up", class: "bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer", flow_id: "sign-up-button"
 
-          link to: SignIns::New, class: "inline-block align-baseline font-bold text-sm text-teal-500 hover:text-teal-800" do
+          link to: SignIns::New, class: "inline-block align-baseline font-bold text-sm text-indigo-500 hover:text-indigo-800" do
             text "Sign in instead"
           end
         end

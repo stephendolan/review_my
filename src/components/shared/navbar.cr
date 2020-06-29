@@ -24,10 +24,10 @@ class Shared::Navbar < BaseComponent
   end
 
   private def user_button_classes
-    "bg-teal-400 hover:bg-teal-500 hover:text-teal-100 px-3 py-1 rounded-full"
+    "bg-indigo-500 hover:bg-indigo-600 text-white font-semibold text-sm px-3 py-1 rounded-full"
   end
 
   private def link_color
-    "hover:text-teal-800"
+    "hover:text-indigo-800"
   end
 end
