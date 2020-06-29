@@ -11,13 +11,13 @@ export default class extends Controller {
   }
 
   connect() {
-    if (!this.validTargets()) {
-      return;
-    }
-
     this.editor = new Quill(this.editorTarget, this.editorOptions);
 
-    this.editor.on("text-change", this.textChanged.bind(this));
+    if (this.hasInputTarget) {
+      this.editor.on("text-change", this.textChanged.bind(this));
+    }
+
+    this.editor.setContents(this.initialContent);
 
     this.turnOffToolbarTabbing();
   }
@@ -35,20 +35,6 @@ export default class extends Controller {
     document.querySelectorAll(".ql-toolbar .ql-picker-label").forEach((el) => {
       el.tabIndex = -1;
     });
-  }
-
-  validTargets() {
-    if (this.editorTarget == undefined) {
-      console.error("Editor target undefined");
-      return false;
-    }
-
-    if (this.inputTarget == undefined) {
-      console.error("Input target undefined");
-      return false;
-    }
-
-    return true;
   }
 
   get editorOptions() {
@@ -103,5 +89,20 @@ export default class extends Controller {
     }
 
     return defaultTheme;
+  }
+
+  get initialContent() {
+    const defaultContent = null;
+    const contentValue = this.data.get("initialContent");
+
+    if (contentValue !== null) {
+      try {
+        return JSON.parse(contentValue);
+      } catch (e) {
+        return defaultContent;
+      }
+    }
+
+    return defaultContent;
   }
 }
