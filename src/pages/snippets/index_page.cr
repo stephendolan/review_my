@@ -10,11 +10,15 @@ class Snippets::IndexPage < MainLayout
       snippets.each do |snippet|
         li class: "w-full p-6 bg-gray-200 flex items-center justify-between" do
           link snippet.title, to: Snippets::Show.with(snippet.slug), class: "text-teal-800 hover:text-teal-500"
-          div data_controller: "rich-text", data_rich_text_initial_content: snippet.content.to_json, data_rich_text_readonly: true do
-            div data_target: "rich-text.editor"
-          end
+          rich_text_preview(snippet)
         end
       end
+    end
+  end
+
+  private def rich_text_preview(snippet)
+    div class: "h-20", data_controller: "rich-text", data_rich_text_initial_content: snippet.content.to_json, data_rich_text_readonly: true do
+      div data_target: "rich-text.editor"
     end
   end
 end
