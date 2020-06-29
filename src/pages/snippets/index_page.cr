@@ -2,23 +2,39 @@ class Snippets::IndexPage < MainLayout
   needs snippets : SnippetQuery
 
   def content
-    div class: "text-center my-6" do
-      link "Create a new snippet", to: Snippets::New, class: "p-3 border rounded text-white bg-teal-400 hover:bg-teal-500"
-    end
+    h1 "Your Snippets", class: "text-center mt-4 mb-10 text-xl font-bold"
 
-    ul class: "divide-y-2" do
+    div class: "grid md:grid-cols-3 lg:grid-cols-4 gap-4" do
+      card(link: Snippets::New, append_classes: "bg-teal-300 hover:bg-teal-400") do
+        div class: "h-full p-4 flex items-center justify-center" do
+          i class: "fas fa-plus-circle mr-2 -ml-2"
+          span "Create a new snippet", class: "font-extrabold"
+        end
+      end
+
       snippets.each do |snippet|
-        li class: "w-full p-6 bg-gray-200 flex items-center justify-between" do
-          link snippet.title, to: Snippets::Show.with(snippet.slug), class: "text-teal-800 hover:text-teal-500"
-          rich_text_preview(snippet)
+        card(link: Snippets::Show.with(snippet.slug), append_classes: "bg-gray-200 hover:bg-gray-300") do
+          div class: "h-full p-4" do
+            span snippet.title
+            copy_link_button(snippet)
+          end
         end
       end
     end
   end
 
-  private def rich_text_preview(snippet)
-    div class: "h-20", data_controller: "rich-text", data_rich_text_initial_content: snippet.content.to_json, data_rich_text_readonly: true do
-      div data_target: "rich-text.editor"
+  private def card(link, append_classes)
+    link to: link, class: "h-32 border rounded #{append_classes}" do
+      yield
+    end
+  end
+
+  private def copy_link_button(snippet)
+    url = Snippets::Show.with(snippet.slug).url
+
+    div data_controller: "clipboard" do
+      input value: url, readonly: true, data_target: "clipboard.source", class: "hidden"
+      button "Copy", data_action: "click->clipboard#copy"
     end
   end
 end
