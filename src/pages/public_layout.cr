@@ -1,9 +1,8 @@
-abstract class MainLayout
+abstract class PublicLayout
   include Lucky::HTMLPage
 
-  # 'needs current_user : User' makes it so that the current_user
-  # is always required for pages using MainLayout
-  needs current_user : User
+  # This layout is meant for public pages, so current_user is optional.
+  needs current_user : User?
 
   abstract def content
   abstract def page_title
