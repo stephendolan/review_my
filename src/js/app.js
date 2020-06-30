@@ -7,6 +7,12 @@ require("@rails/ujs").start();
 // Turbolinks is optional. Learn more: https://github.com/turbolinks/turbolinks/
 require("turbolinks").start();
 
+require("trix");
+
+document.addEventListener("trix-file-accept", function(event) {
+  event.preventDefault();
+});
+
 // If using Turbolinks, you can attach events to page load like this:
 //
 // document.addEventListener("turbolinks:load", function() {

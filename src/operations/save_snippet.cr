@@ -6,12 +6,7 @@ class SaveSnippet < Snippet::SaveOperation
   before_save do
     assign_creator
     assign_slug
-    parse_content
     validate_uniqueness_of slug
-  end
-
-  private def parse_content
-    content.value = JSON.parse(content.value.to_s)
   end
 
   private def assign_creator

@@ -15,8 +15,11 @@
 //
 // @import "components/my_new_component";
 
-@import "tailwindcss/base";
+@import "~tailwindcss/base";
 
-@import "tailwindcss/components";
+@import "~tailwindcss/components";
 
-@import "tailwindcss/utilities";
+@import "~tailwindcss/utilities";
+
+@import "~trix/dist/trix";
+@import "components/trix_overrides";
