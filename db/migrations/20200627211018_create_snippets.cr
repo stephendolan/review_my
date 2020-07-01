@@ -1,6 +1,5 @@
 class CreateSnippets::V20200627211018 < Avram::Migrator::Migration::V1
   def migrate
-    # Learn about migrations at: https://luckyframework.org/guides/database/migrations
     create table_for(Snippet) do
       primary_key id : UUID
       add slug : String, index: true, unique: true

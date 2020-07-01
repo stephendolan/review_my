@@ -27,7 +27,7 @@ class Snippets::IndexPage < MainLayout
   end
 
   private def copy_link_section(snippet)
-    url = Snippets::Show.with(snippet.slug).url
+    url = Snippets::Revisions::New.with(snippet.slug).url
 
     div class: "text-center bg-indigo-100 border-t-2 flex justify-between items-center", data_controller: "clipboard" do
       input class: "py-1 bg-transparent focus:outline-none w-full text-xs pl-4", value: url, readonly: true, data_target: "clipboard.source"

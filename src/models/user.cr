@@ -6,6 +6,7 @@ class User < BaseModel
     column email : String
     column encrypted_password : String
     has_many snippets : Snippet
+    has_many revisions : Revision
   end
 
   def emailable : Carbon::Address
