@@ -3,7 +3,10 @@ class Shared::Navbar < BaseComponent
 
   def render
     nav class: "w-full flex items-center justify-between bg-gray-200 border-b px-6 py-4" do
-      link "ReviewMy", to: Home::Index, class: "font-extrabold text-lg #{link_color}"
+      link to: Home::Index, class: "font-extrabold text-lg #{link_color}" do
+        span "ReviewMy"
+        span "Email", class: "text-indigo-700"
+      end
 
       if (user = current_user)
         div class: "space-x-4" do
