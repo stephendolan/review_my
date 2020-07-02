@@ -1,6 +1,6 @@
 class Marketing::IndexPage < AuthLayout
   def content
-    div class: "px-3 lg:px-0" do
+    div class: "px-3 lg:px-0 select-none" do
       div class: "relative bg-white overflow-hidden" do
         div class: "relative pt-6 pb-16 md:pb-20 lg:pb-24 xl:pb-32" do
           div class: "mt-8 mx-auto max-w-screen-xl px-4 sm:mt-12 sm:px-6 md:mt-12 xl:mt-24" do
