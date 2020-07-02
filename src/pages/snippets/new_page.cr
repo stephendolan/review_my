@@ -14,7 +14,7 @@ class Snippets::NewPage < MainLayout
         tag("trix-editor", input: "snippet_content", class: "flex-grow")
       end
 
-      submit "Create", class: "bg-indigo-500 hover:bg-indigo-700 text-white font-bold mt-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"
+      submit "Create", class: "bg-indigo-500 hover:bg-indigo-700 text-gray-100 font-bold mt-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"
     end
   end
 end

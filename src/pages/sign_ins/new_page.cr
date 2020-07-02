@@ -17,7 +17,7 @@ class SignIns::NewPage < AuthLayout
 
       div class: "mt-4" do
         div class: "flex items-center justify-between" do
-          submit "Sign In", class: "bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer", flow_id: "sign-in-button"
+          submit "Sign In", class: "bg-indigo-500 hover:bg-indigo-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer", flow_id: "sign-in-button"
 
           div do
             div do

@@ -22,6 +22,10 @@ class Snippets::IndexPage < MainLayout
         end
       end
 
+      div class: "text-center" do
+        text pluralize(snippet.revisions.size, "revision")
+      end
+
       copy_link_section(snippet)
     end
   end
@@ -48,6 +52,6 @@ class Snippets::IndexPage < MainLayout
   end
 
   private def hoverable_indigo
-    "bg-indigo-500 hover:bg-indigo-600 text-white"
+    "bg-indigo-500 hover:bg-indigo-600 text-gray-100"
   end
 end

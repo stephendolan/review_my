@@ -3,8 +3,15 @@ class Snippets::Revisions::New < BrowserAction
 
   nested_route do
     snippet = SnippetQuery.find(snippet_id)
-    html Snippets::Revisions::NewPage,
-      snippet: snippet,
-      save_revision: SaveRevision.new(current_user: current_user, snippet: snippet)
+
+    if snippet.creator == current_user
+      redirect to: Snippets::Show.with(snippet.slug)
+    elsif current_user && (revision = snippet.revisions.find { |revision| revision.creator == current_user })
+      redirect to: Snippets::Revisions::Show.with(snippet_id: snippet.slug, revision_id: revision.id)
+    else
+      html Snippets::Revisions::NewPage,
+        snippet: snippet,
+        save_revision: SaveRevision.new(current_user: current_user, snippet: snippet)
+    end
   end
 end
