@@ -11,9 +11,13 @@ class Snippets::Revisions::Create < BrowserAction
     else
       SaveRevision.create(params, current_user: current_user, snippet: snippet) do |operation, revision|
         if revision
-          if snippet.creator == current_user
+          flash.keep
+          flash.success = "Your revision was created!"
+
+          user = current_user
+          if snippet.creator == user
             redirect to: Snippets::Show.with(snippet.slug)
-          elsif current_user && revision.creator == current_user
+          elsif user && revision.creator_id == user.id
             redirect to: Snippets::Revisions::Show.with(snippet_id: snippet.slug, revision_id: revision.id)
           else
             redirect to: Home::Index
