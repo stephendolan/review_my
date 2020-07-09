@@ -4,7 +4,7 @@ class SnippetCardComponent < BaseComponent
   def render
     div class: "h-32 border border-gray-400 rounded-md bg-gray-100 flex flex-col justify-between shadow-md" do
       div class: "relative mt-2" do
-        div snippet.title, class: "text-center font-semibold"
+        div snippet.title, class: "text-center font-semibold px-10"
         link to: Snippets::Show.with(snippet.slug) do
           i class: "fas fa-external-link-alt absolute top-0 right-0 mr-2 hover:text-indigo-400"
         end
