@@ -9,7 +9,7 @@ class Marketing::IndexPage < AuthLayout
                 h2 class: "mt-1 text-4xl tracking-tight leading-10 font-bold text-gray-900 sm:leading-none sm:text-6xl lg:text-5xl" do
                   text "Need a quick review?"
                 end
-                para class: "mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl" do
+                para class: "mt-3 text-base text-gray-600 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl" do
                   text "ReviewMy helps you submit quick snippets for review from others, ensuring that you get the feedback you need quickly, concisely, and intuitively. Use it for emails, text messages, portions of larger documents, or anything else based on text!"
                 end
                 div class: "mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start" do
