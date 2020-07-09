@@ -3,35 +3,9 @@ class Snippets::Revisions::NewPage < PublicLayout
   needs save_revision : SaveRevision
 
   def content
-    render_back_to_snippet_button
-
-    render_existing_snippet
+    m SnippetComponent, snippet: snippet
 
     render_form(@save_revision)
-  end
-
-  private def render_back_to_snippet_button
-    div do
-      link to: Snippets::Show.with(snippet_id: snippet.slug), class: "bg-indigo-500 hover:bg-indigo-700 rounded-full py-1 px-4 text-gray-100 text-semibold" do
-        i class: "fas fa-arrow-alt-circle-left mr-2"
-        text "Back to Snippet"
-      end
-    end
-  end
-
-  private def render_existing_snippet
-    unless current_user == snippet.creator
-      h1 class: "text-center font-bold text-lg mt-6" do
-        text "You're viewing a snippet by "
-        text snippet.creator.email
-      end
-    end
-
-    h1 snippet.title, class: "text-center font-semibold text-lg mt-6"
-
-    div class: "border-2 border-gray-400 w-full p-6 mt-4" do
-      raw snippet.content
-    end
   end
 
   private def render_form(op)

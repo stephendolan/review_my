@@ -1,6 +1,9 @@
 class Snippets::Revisions::Show < BrowserAction
   nested_route do
-    revision = RevisionQuery.new.preload_snippet(SnippetQuery.new.preload_creator).preload_creator.find(revision_id)
+    revision = RevisionQuery.new
+      .preload_snippet(SnippetQuery.new.preload_creator)
+      .preload_creator
+      .find(revision_id)
 
     if revision_creator?(revision) || snippet_creator?(revision.snippet)
       html Snippets::Revisions::ShowPage, revision: revision
