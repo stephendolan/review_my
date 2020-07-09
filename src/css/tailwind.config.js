@@ -1,8 +1,8 @@
 module.exports = {
   purge: [
     "./src/css/**/*.scss",
-    "./src/pages/**/*_page.cr",
-    "./src/components/**/*_component.cr",
+    "./src/pages/**/*.cr",
+    "./src/components/**/*.cr",
     "./src/js/controllers/**/*_controller.ts",
   ],
   theme: {
