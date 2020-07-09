@@ -23,7 +23,7 @@ class Marketing::IndexPage < AuthLayout
               end
               div class: "mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center" do
                 div class: "relative mx-auto w-full lg:max-w-md" do
-                  img src: asset("images/featured.gif"), class: "shadow-lg rounded-lg"
+                  img src: "https://media.giphy.com/media/KDDb6Kh2zUhhaD4x0P/giphy.gif", class: "shadow-lg rounded-lg"
                 end
               end
             end
