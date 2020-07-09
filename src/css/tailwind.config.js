@@ -1,9 +1,9 @@
 module.exports = {
   purge: [
-    "./**/*.scss",
-    "../pages/**/*_page.cr",
-    "../components/**/*_component.cr",
-    "../js/controllers/**/*_controller.ts",
+    "./src/css/**/*.scss",
+    "./src/pages/**/*_page.cr",
+    "./src/components/**/*_component.cr",
+    "./src/js/controllers/**/*_controller.ts",
   ],
   theme: {
     extend: {},
