@@ -4,9 +4,11 @@ class SnippetCardComponent < BaseComponent
   def render
     div class: "h-32 border border-gray-300 rounded-sm flex flex-col justify-between shadow-md" do
       div class: "relative py-1 bg-indigo-100" do
-        div snippet.title, class: "text-center font-semibold mx-10 overflow-x-auto"
-        link to: Snippets::Show.with(snippet.slug) do
-          i class: "fas fa-external-link-alt absolute top-0 right-0 m-2 hover:text-indigo-400"
+        div class: "mx-10 overflow-x-auto text-center" do
+          link snippet.title, to: Snippets::Show.with(snippet.slug), class: "font-semibold hover:text-indigo-600"
+        end
+        link to: Snippets::Delete.with(snippet.slug), data_confirm: "Are you sure? This action is not reversible." do
+          i class: "fas fa-trash absolute top-0 right-0 m-2 text-red-500 hover:text-red-600"
         end
       end
 

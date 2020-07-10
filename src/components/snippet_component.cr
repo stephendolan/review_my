@@ -5,7 +5,7 @@ class SnippetComponent < BaseComponent
   def render
     div class: "border-gray-300 border rounded-sm shadow-md" do
       div class: "bg-indigo-100 p-2 leading-tight" do
-        h1 snippet.title, class: "font-semibold text-lg"
+        h1 snippet.title, class: "font-semibold text-lg overflow-x-auto"
         small "by #{snippet.creator.email}", class: "text-gray-700"
       end
 
