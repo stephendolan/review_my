@@ -28,8 +28,8 @@ class SignUps::NewPage < AuthLayout
   end
 
   private def sign_up_fields(op)
-    m Shared::Field, op.email, "Email", &.email_input(autofocus: "true")
-    m Shared::Field, op.password, "Password", &.password_input
-    m Shared::Field, op.password_confirmation, "Confirm Password", &.password_input
+    m Shared::Field, op.email, "Email", &.email_input(autofocus: "true", placeholder: "you@example.com")
+    m Shared::Field, op.password, "Password", &.password_input(placeholder: "*" * 12)
+    m Shared::Field, op.password_confirmation, "Confirm Password", &.password_input(placeholder: "*" * 12)
   end
 end
