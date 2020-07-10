@@ -11,7 +11,8 @@ class Shared::LayoutHead < BaseComponent
 
       # Set up page view tracking in production only
       if Lucky::Env.production?
-        js_link src:"https://kindmetrics.io/js/track.js", defer: "true", data_domain: "reviewmy.email"
+        js_link src: "https://kindmetrics.io/js/track.js", defer: "true", data_domain: "reviewmy.email"
+        js_link src: "https://instant.page/5.1.0", type: "module", integrity: "sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"
       end
 
       js_link asset("js/app.js"), defer: "true", data_turbolinks_track: "reload"
