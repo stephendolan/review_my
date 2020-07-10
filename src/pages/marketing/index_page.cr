@@ -7,7 +7,7 @@ class Marketing::IndexPage < AuthLayout
 
           render_title_subtext
 
-          div class: "flex justify-center lg:justify-start space-x-3 mt-6" do
+          div class: "flex sm:flex-row flex-col space-y-4 sm:space-y-0 justify-center lg:justify-start sm:space-x-3 mt-6" do
             render_action_button(title: "Get Started", link: SignUps::New)
             render_action_button(title: "Sign In", link: SignIns::New)
           end
@@ -46,8 +46,8 @@ class Marketing::IndexPage < AuthLayout
   end
 
   private def render_action_button(title, link)
-    div do
-      link title, to: link, class: "px-8 py-3 border border-transparent rounded-md text-gray-100 bg-indigo-600 hover:bg-indigo-500 hover:text-gray-100 focus:outline-none focus:shadow-outline lg:py-4 lg:text-lg lg:px-10"
+    div class: "flex" do
+      link title, to: link, class: "px-8 py-3 border border-transparent rounded-md text-gray-100 bg-indigo-600 hover:bg-indigo-500 hover:text-gray-100 focus:outline-none focus:shadow-outline lg:py-4 lg:text-lg lg:px-10 w-full"
     end
   end
 
