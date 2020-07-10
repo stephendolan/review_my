@@ -1,7 +1,7 @@
 class Marketing::IndexPage < AuthLayout
   def content
     div class: "select-none" do
-      div class: "px-6 my-20 lg:my-32 flex flex-col lg:flex-row text-center lg:text-left items-center justify-center lg:space-x-12 space-y-12 lg:space-y-0" do
+      div class: "px-6 my-6 sm:my-20 lg:my-32 flex flex-col lg:flex-row text-center lg:text-left items-center justify-center lg:space-x-12 space-y-12 lg:space-y-0" do
         div class: "md:max-w-2xl" do
           render_main_title
 
