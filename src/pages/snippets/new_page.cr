@@ -7,7 +7,7 @@ class Snippets::NewPage < MainLayout
 
   private def render_form(op)
     form_for Snippets::Create, class: "flex-1 flex flex-col" do
-      m Shared::Field, op.title, &.text_input
+      m Shared::Field, op.title, &.text_input(autofocus: true)
 
       div class: "flex-grow flex flex-col mt-4" do
         m Shared::Field, op.content, &.textarea(append_class: "hidden")
