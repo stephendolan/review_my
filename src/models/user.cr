@@ -9,6 +9,10 @@ class User < BaseModel
     has_many revisions : Revision
   end
 
+  def email_domain
+    email.split("@").last
+  end
+
   def emailable : Carbon::Address
     Carbon::Address.new(email)
   end

@@ -3,18 +3,23 @@ class Snippets::Revisions::Create < BrowserAction
 
   nested_route do
     snippet = SnippetQuery.find(snippet_id)
+    user = current_user
+    flash.keep
 
-    if snippet.creator == current_user
+    if snippet.domain_restricted? && (user.nil? || snippet.creator.email_domain != user.email_domain)
+      flash.failure = "That snippet is private! Sign in to add a revision!"
+      redirect to: Home::Index
+    end
+
+    if snippet.creator == user
       redirect to: Snippets::Show.with(snippet.slug)
-    elsif current_user && (revision = snippet.revisions.find { |revision| revision.creator == current_user })
+    elsif user && (revision = snippet.revisions.find { |revision| revision.creator == user })
       redirect to: Snippets::Revisions::Show.with(snippet_id: snippet.slug, revision_id: revision.id)
     else
-      SaveRevision.create(params, current_user: current_user, snippet: snippet) do |operation, revision|
+      SaveRevision.create(params, current_user: user, snippet: snippet) do |operation, revision|
         if revision
-          flash.keep
           flash.success = "Your revision was created!"
 
-          user = current_user
           if snippet.creator == user
             redirect to: Snippets::Show.with(snippet.slug)
           elsif user && revision.creator_id == user.id

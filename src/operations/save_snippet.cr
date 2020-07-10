@@ -1,7 +1,7 @@
 class SaveSnippet < Snippet::SaveOperation
   needs current_user : User
 
-  permit_columns title, content
+  permit_columns title, content, domain_restricted
 
   before_save do
     assign_creator

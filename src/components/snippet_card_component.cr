@@ -4,12 +4,9 @@ class SnippetCardComponent < BaseComponent
   def render
     div class: "h-32 border border-gray-300 rounded-sm flex flex-col justify-between shadow-md" do
       div class: "relative py-1 bg-indigo-100" do
-        div class: "mx-10 overflow-x-auto text-center" do
-          link snippet.title, to: Snippets::Show.with(snippet.slug), class: "font-semibold hover:text-indigo-600"
-        end
-        link to: Snippets::Delete.with(snippet.slug), data_confirm: "Are you sure? This action is not reversible." do
-          i class: "fas fa-trash absolute top-0 right-0 m-2 text-red-500 hover:text-red-600"
-        end
+        render_public_private_icon
+        render_title
+        render_delete_icon
       end
 
       div class: "text-center select-none" do
@@ -17,6 +14,28 @@ class SnippetCardComponent < BaseComponent
       end
 
       render_copy_link
+    end
+  end
+
+  private def render_title
+    div class: "mx-10 overflow-x-auto text-center" do
+      link snippet.title, to: Snippets::Show.with(snippet.slug), class: "font-semibold hover:text-indigo-600"
+    end
+  end
+
+  private def render_delete_icon
+    link to: Snippets::Delete.with(snippet.slug), data_confirm: "Are you sure? This action is not reversible." do
+      i class: "fas fa-trash absolute top-0 right-0 m-2 text-red-500 hover:text-red-600"
+    end
+  end
+
+  private def render_public_private_icon
+    span do
+      if snippet.domain_restricted?
+        i class: "fas fa-lock absolute top-0 left-0 m-2 text-indigo-600"
+      else
+        i class: "fas fa-lock-open absolute top-0 left-0 m-2 text-indigo-600"
+      end
     end
   end
 

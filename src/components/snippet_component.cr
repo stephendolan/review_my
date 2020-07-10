@@ -5,7 +5,10 @@ class SnippetComponent < BaseComponent
   def render
     div class: "border-gray-300 border rounded-sm shadow-md" do
       div class: "bg-indigo-100 p-2 leading-tight" do
-        h1 snippet.title, class: "font-semibold text-lg overflow-x-auto"
+        div class: "overflow-x-auto flex items-center" do
+          render_public_private_icon
+          h1 snippet.title, class: "font-semibold text-lg"
+        end
         small "by #{snippet.creator.email}", class: "text-gray-700"
       end
 
@@ -15,6 +18,16 @@ class SnippetComponent < BaseComponent
 
       if render_share_link?
         render_share_link
+      end
+    end
+  end
+
+  private def render_public_private_icon
+    span class: "mr-2 text-xs" do
+      if snippet.domain_restricted?
+        i class: "fas fa-lock text-indigo-600"
+      else
+        i class: "fas fa-lock-open text-indigo-600"
       end
     end
   end
