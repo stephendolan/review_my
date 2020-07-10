@@ -8,6 +8,12 @@ class Shared::LayoutHead < BaseComponent
       utf8_charset
       title ["ReviewMy", (@page_title.empty? ? nil : @page_title)].compact.join(" - ")
       css_link asset("css/app.css"), data_turbolinks_track: "reload"
+
+      # Set up page view tracking in production only
+      if Lucky::Env.production?
+        js_link src:"https://kindmetrics.io/js/track.js", defer: "true", data_domain: "reviewmy.email"
+      end
+
       js_link asset("js/app.js"), defer: "true", data_turbolinks_track: "reload"
       js_link src: "https://kit.fontawesome.com/5360e87fe2.js", crossorigin: "anonymous"
       meta name: "turbolinks-cache-control", content: "no-cache"
