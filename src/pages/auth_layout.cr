@@ -18,7 +18,7 @@ abstract class AuthLayout
         m Shared::Navbar
         m Shared::FlashMessages, context.flash
 
-        section class: "flex-grow" do
+        section id: "guest", class: "flex-grow" do
           content
         end
 
