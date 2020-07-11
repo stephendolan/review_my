@@ -1,6 +1,10 @@
 class Snippets::ShowPage < MainLayout
   needs snippet : Snippet
 
+  def page_title
+    "Snippet - #{snippet.title}"
+  end
+
   def content
     m SnippetComponent, snippet: snippet, render_share_link: true
 

@@ -6,7 +6,7 @@ class Shared::LayoutHead < BaseComponent
   def render
     head do
       utf8_charset
-      title ["ReviewMy", (@page_title.empty? ? nil : @page_title)].compact.join(" - ")
+      title [(@page_title.empty? ? nil : @page_title), "ReviewMy"].compact.join(" | ")
       css_link asset("css/app.css"), data_turbolinks_track: "reload"
 
       # Set up page view tracking in production only

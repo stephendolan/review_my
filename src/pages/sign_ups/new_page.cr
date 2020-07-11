@@ -1,6 +1,10 @@
 class SignUps::NewPage < AuthLayout
   needs operation : SignUpUser
 
+  def page_title
+    "Sign Up"
+  end
+
   def content
     div class: "w-full sm:max-w-xs mx-auto mt-10" do
       render_sign_up_form(@operation)

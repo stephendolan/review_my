@@ -1,4 +1,8 @@
 class Me::ShowPage < MainLayout
+  def page_title
+    current_user.email
+  end
+
   def content
     h1 "Hey, #{current_user.email}!", class: "text-lg text-center"
 

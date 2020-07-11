@@ -2,6 +2,10 @@ class PasswordResets::NewPage < AuthLayout
   needs operation : ResetPassword
   needs user_id : UUID
 
+  def page_title
+    "Reset Your Password"
+  end
+
   def content
     div class: "w-full sm:max-w-xs mx-auto mt-10" do
       render_password_reset_form(@operation)

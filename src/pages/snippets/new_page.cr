@@ -1,6 +1,10 @@
 class Snippets::NewPage < MainLayout
   needs save_snippet : SaveSnippet
 
+  def page_title
+    "New Snippet"
+  end
+
   def content
     render_form(@save_snippet)
   end

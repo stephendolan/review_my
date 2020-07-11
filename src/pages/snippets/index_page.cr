@@ -1,6 +1,10 @@
 class Snippets::IndexPage < MainLayout
   needs snippets : SnippetQuery
 
+  def page_title
+    "Snippets"
+  end
+
   def content
     h1 "Your Snippets", class: "text-center mt-4 mb-10 text-xl font-bold"
 

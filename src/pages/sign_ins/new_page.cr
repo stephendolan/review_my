@@ -1,6 +1,10 @@
 class SignIns::NewPage < AuthLayout
   needs operation : SignInUser
 
+  def page_title
+    "Sign In"
+  end
+
   def content
     div class: "w-full sm:max-w-xs mx-auto mt-10" do
       render_sign_in_form(@operation)

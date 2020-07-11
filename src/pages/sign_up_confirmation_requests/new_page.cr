@@ -1,6 +1,10 @@
 class SignUpConfirmationRequests::NewPage < AuthLayout
   needs operation : RequestSignUpConfirmation
 
+  def page_title
+    "Confirmation Email Request"
+  end
+
   def content
     div class: "w-full sm:max-w-xs mx-auto mt-10" do
       render_form(@operation)

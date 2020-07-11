@@ -2,6 +2,10 @@ class Snippets::Revisions::NewPage < PublicLayout
   needs snippet : Snippet
   needs save_revision : SaveRevision
 
+  def page_title
+    "Submit a Revision"
+  end
+
   def content
     m SnippetComponent, snippet: snippet
 
