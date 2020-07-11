@@ -32,9 +32,9 @@ class SnippetCardComponent < BaseComponent
   private def render_public_private_icon
     span do
       if snippet.domain_restricted?
-        i class: "fas fa-lock absolute top-0 left-0 m-2 text-indigo-600"
+        i class: "fas fa-lock absolute top-0 left-0 m-2 text-indigo-600", title: "Locked to domain"
       else
-        i class: "fas fa-lock-open absolute top-0 left-0 m-2 text-indigo-600"
+        i class: "fas fa-lock-open absolute top-0 left-0 m-2 text-indigo-600", title: "Public"
       end
     end
   end
