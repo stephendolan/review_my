@@ -7,7 +7,7 @@ class Snippets::Revisions::Create < BrowserAction
     flash.keep
 
     if snippet.domain_restricted? && (user.nil? || snippet.creator.email_domain != user.email_domain)
-      flash.failure = "That snippet is private! Sign in to add a revision!"
+      flash.failure = "That snippet is private. Sign in to add a revision!"
       redirect to: Home::Index
     end
 
