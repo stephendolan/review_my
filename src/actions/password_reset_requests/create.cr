@@ -5,11 +5,11 @@ class PasswordResetRequests::Create < BrowserAction
     RequestPasswordReset.new(params).submit do |operation, user|
       if user
         PasswordResetRequestEmail.new(user).deliver
-        flash.success = "You should receive an email on how to reset your password shortly"
-        redirect SignIns::New
-      else
-        html NewPage, operation: operation
       end
+
+      flash.keep
+      flash.success = "If your email is in our system, you will receive a password reset email shortly"
+      redirect to: SignIns::New
     end
   end
 end

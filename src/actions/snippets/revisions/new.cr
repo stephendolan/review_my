@@ -4,11 +4,11 @@ class Snippets::Revisions::New < BrowserAction
   nested_route do
     snippet = SnippetQuery.find(snippet_id)
     user = current_user
-    flash.keep
 
     if snippet.domain_restricted? && (user.nil? || snippet.creator.email_domain != user.email_domain)
+      flash.keep
       flash.failure = "That snippet is private. Sign in to add a revision!"
-      redirect to: Home::Index
+      redirect Home::Index
     end
 
     if snippet.creator == user
