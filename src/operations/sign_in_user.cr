@@ -28,12 +28,20 @@ class SignInUser < Avram::Operation
   private def validate_credentials(user)
     if user
       unless Authentic.correct_password?(user, password.value.to_s)
-        password.add_error "is incorrect"
+        email.add_error "or password is incorrect"
+        password.add_error "or email is incorrect"
+
+        # Short circuit so that people can't fish for emails
+        return
+      end
+
+      unless user.confirmed?
+        email.add_error "needs to be confirmed"
       end
     else
       # Obfuscate whether or not the user is in the database
-      email.add_error "is incorrect"
-      password.add_error "is incorrect"
+      email.add_error "or password is incorrect"
+      password.add_error "or email is incorrect"
     end
   end
 end

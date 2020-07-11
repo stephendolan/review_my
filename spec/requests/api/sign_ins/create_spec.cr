@@ -20,7 +20,7 @@ describe Api::SignIns::Create do
     response.should send_json(
       400,
       param: "password",
-      details: "password is incorrect"
+      details: "password or email is incorrect"
     )
   end
 end

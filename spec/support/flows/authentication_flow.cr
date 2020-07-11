@@ -31,7 +31,7 @@ class AuthenticationFlow < BaseFlow
   end
 
   def should_have_password_error
-    el("body", text: "Password is incorrect").should be_on_page
+    el("body", text: "Password or email is incorrect").should be_on_page
   end
 
   private def sign_out_button

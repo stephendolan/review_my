@@ -1,0 +1,6 @@
+Your email has been used to sign up for ReviewMy (https://reviewmy.email)!
+
+Click on the link below to confirm your account:
+<%= SignUpConfirmations::Show.url(token: @user.confirmation_token) %>
+
+If you didn't sign up for ReviewMy, you can ignore this email.
