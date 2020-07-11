@@ -18,8 +18,14 @@ class Shared::LayoutHead < BaseComponent
       js_link asset("js/app.js"), defer: "true", data_turbolinks_track: "reload"
       js_link src: "https://kit.fontawesome.com/5360e87fe2.js", crossorigin: "anonymous"
       meta name: "turbolinks-cache-control", content: "no-cache"
+      meta name: "description", content: site_description
+      meta name: "robots", content: "index, follow"
       csrf_meta_tags
       responsive_meta_tag
     end
+  end
+
+  private def site_description
+    "Review My Email provides quick and easy revisions to be requested from coworkers, friends, and family. Always send emails with the confidence that you're hitting the mark."
   end
 end
