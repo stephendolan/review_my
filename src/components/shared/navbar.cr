@@ -11,6 +11,9 @@ class Shared::Navbar < BaseComponent
       if (user = current_user)
         div class: "space-x-4" do
           link to: Me::Show, class: user_button_classes do
+            span do
+              img src: user.gravatar_url(size: 16), class: "w-4 h-4 mr-2 rounded-full hidden sm:inline"
+            end
             span user.email, class: "hidden sm:inline"
             span "Account", class: "inline sm:hidden"
           end
@@ -27,7 +30,7 @@ class Shared::Navbar < BaseComponent
   end
 
   private def user_button_classes
-    "bg-indigo-500 hover:bg-indigo-600 text-gray-100 font-semibold text-sm px-3 py-1 rounded-full"
+    "bg-indigo-500 hover:bg-indigo-600 text-gray-100 font-semibold text-sm px-3 py-1 rounded-lg"
   end
 
   private def link_color
