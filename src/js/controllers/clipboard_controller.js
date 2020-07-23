@@ -6,7 +6,6 @@ export default class extends Controller {
   }
 
   copy(event) {
-    console.log("Doing it!");
     event.preventDefault();
     this.sourceTarget.select();
     document.execCommand("copy");

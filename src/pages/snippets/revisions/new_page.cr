@@ -7,9 +7,15 @@ class Snippets::Revisions::NewPage < PublicLayout
   end
 
   def content
-    m SnippetComponent, snippet: snippet
+    div data_controller: "diff" do
+      m SnippetComponent, snippet: snippet
 
-    render_form(@save_revision)
+      div class: "hidden", data_target: "diff.old" do
+        raw snippet.content
+      end
+
+      render_form(@save_revision)
+    end
   end
 
   private def render_form(op)
@@ -23,7 +29,7 @@ class Snippets::Revisions::NewPage < PublicLayout
       op.content.value = snippet.content
       div class: "flex-grow flex flex-col mt-4" do
         m Shared::Field, op.content, "Revised content", &.textarea(append_class: "hidden")
-        tag "trix-editor", input: "revision_content", class: "flex-grow", autofocus: true
+        tag "trix-editor", input: "revision_content", class: "flex-grow", autofocus: true, data_target: "diff.new"
       end
 
       submit "Submit", class: "bg-indigo-500 hover:bg-indigo-700 text-gray-100 font-bold mt-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"
