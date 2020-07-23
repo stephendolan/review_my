@@ -1,3 +1,15 @@
 span.trix-button-group--file-tools {
   display: none;
 }
+
+trix-editor ul {
+  list-style: disc;
+  margin: revert;
+  padding: revert;
+}
+
+trix-editor ol {
+  list-style: decimal;
+  margin: revert;
+  padding: revert;
+}
