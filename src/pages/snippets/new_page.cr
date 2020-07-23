@@ -26,7 +26,7 @@ class Snippets::NewPage < MainLayout
 
       div class: "flex-grow flex flex-col" do
         m Shared::Field, op.content, &.textarea(append_class: "hidden")
-        tag("trix-editor", input: "snippet_content", class: "flex-grow", placeholder: "Your snippet content")
+        tag("trix-editor", input: "snippet_content", class: "flex-grow trix-content", placeholder: "Your snippet content")
       end
 
       submit "Create", class: "bg-indigo-500 hover:bg-indigo-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"
