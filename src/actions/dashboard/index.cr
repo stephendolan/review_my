@@ -1,6 +1,6 @@
-class Snippets::Index < BrowserAction
+class Dashboard::Index < BrowserAction
   route do
-    html Snippets::IndexPage, snippets: snippets
+    html Dashboard::IndexPage, snippets: snippets
   end
 
   private def snippets

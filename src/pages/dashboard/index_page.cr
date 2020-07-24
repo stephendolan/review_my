@@ -1,11 +1,15 @@
-class Snippets::IndexPage < MainLayout
+class Dashboard::IndexPage < MainLayout
   needs snippets : SnippetQuery
 
   def page_title
-    "Snippets"
+    "Dashboard"
   end
 
   def content
+    render_snippets
+  end
+
+  private def render_snippets
     h1 "Your Snippets", class: "text-center mt-4 mb-10 text-xl font-bold"
 
     div class: "grid md:grid-cols-2 lg:grid-cols-3 gap-5" do

@@ -7,6 +7,6 @@ class Snippets::Delete < BrowserAction
       flash.keep
     end
 
-    redirect to: Snippets::Index
+    redirect to: Dashboard::Index
   end
 end
