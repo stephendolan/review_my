@@ -3,7 +3,7 @@ class RevisionComponent < BaseComponent
   needs render_link : Bool = false
 
   def render
-    div class: "border border-gray-300 w-full rounded-sm shadow-md", data_controller: "" do
+    div class: "border border-gray-300 w-full rounded-sm shadow-md", data_controller: "diff" do
       div class: "hidden", data_target: "diff.old" do
         raw revision.snippet.content
       end

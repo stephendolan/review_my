@@ -7,7 +7,7 @@ class Snippets::Revisions::NewPage < PublicLayout
   end
 
   def content
-    div data_controller: "" do
+    div data_controller: "diff" do
       m SnippetComponent, snippet: snippet
 
       div class: "hidden", data_target: "diff.old" do

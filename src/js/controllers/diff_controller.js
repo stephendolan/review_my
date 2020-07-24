@@ -18,10 +18,10 @@ export default class extends Controller {
   }
 
   calculateAndDisplayDiff() {
-    const htmlDiff = diff(
-      he.decode(this.oldTarget.innerHTML),
-      he.decode(this.newTarget.innerHTML)
-    );
+    const oldContent = this.sanitize(this.oldTarget.innerHTML);
+    const newContent = this.sanitize(this.newTarget.innerHTML);
+
+    const htmlDiff = diff(oldContent, newContent);
 
     htmlDiff.forEach((section, index) => {
       const [status, content] = section;
@@ -43,8 +43,8 @@ export default class extends Controller {
   }
 
   skipContent(content) {
-    const htmlComment = /^<!--[^>]*?-->$/;
-    const htmlTag = /^<[^>]*?>$/;
+    const htmlComment = /^(<!--[^>]*?-->)*$/;
+    const htmlTag = /^(<[^>]*?>)*$/;
 
     if (content.match(htmlComment)) {
       return true;
@@ -55,6 +55,11 @@ export default class extends Controller {
     }
 
     return false;
+  }
+
+  sanitize(content) {
+    let strippedContent = content.replace(/<!--\s*block\s*-->/g, "");
+    return he.decode(strippedContent);
   }
 
   joinDiff(diffArray) {
