@@ -58,12 +58,15 @@ export default class extends Controller {
   }
 
   sanitize(content) {
-    let strippedContent = content.replace(/<!--\s*block\s*-->/g, "");
-    return he.decode(strippedContent);
+    const strippedContent = content.replace(/<!--\s*block\s*-->/g, "");
+    const decodedContent = he.decode(strippedContent);
+
+    return decodedContent;
   }
 
   joinDiff(diffArray) {
     let returnString = "";
+
     diffArray.forEach(section => {
       const [status, content] = section;
       returnString += content;
