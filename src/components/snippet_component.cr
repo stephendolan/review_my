@@ -12,7 +12,7 @@ class SnippetComponent < BaseComponent
         small "by #{snippet.creator.email}", class: "text-gray-700"
       end
 
-      div class: "w-full p-6", data_target: "diff.display" do
+      div class: "w-full p-6 trix-content", data_target: "diff.display" do
         raw snippet.content
       end
 
