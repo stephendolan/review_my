@@ -46,7 +46,7 @@ class Dashboard::IndexPage < MainLayout
   private def render_snippets
     h1 "Your Snippets", class: "text-center my-4 text-xl font-bold"
 
-    div class: "grid md:grid-cols-1 lg:grid-cols-2 gap-5" do
+    div class: "grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5" do
       add_snippet_card
 
       snippets.each do |snippet|
