@@ -1,6 +1,26 @@
 class Dashboard::Index < BrowserAction
   route do
-    html Dashboard::IndexPage, snippets: snippets
+    html Dashboard::IndexPage, snippets: snippets, activity: recent_activity
+  end
+
+  private def recent_activity
+    (revisions_by_other_users.to_a + revisions_by_current_user.to_a)
+      .sort_by(&.created_at)
+      .reverse
+  end
+
+  private def revisions_by_current_user
+    base_revision_query.creator_id(current_user.id)
+  end
+
+  private def revisions_by_other_users
+    base_revision_query.where_snippets(SnippetQuery.new.creator_id(current_user.id))
+  end
+
+  private def base_revision_query
+    RevisionQuery.new
+      .preload_snippet
+      .preload_creator
   end
 
   private def snippets

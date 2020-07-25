@@ -4,10 +4,10 @@ class SnippetComponent < BaseComponent
 
   def render
     div class: "border-gray-300 border rounded-sm shadow-md" do
-      div class: "bg-indigo-100 p-2 leading-tight" do
-        div class: "overflow-x-auto flex items-center" do
+      div class: "bg-indigo-100 p-2 leading-tight overflow-x-hidden" do
+        div class: "flex items-center" do
           render_public_private_icon
-          h1 snippet.title, class: "font-semibold text-lg"
+          span snippet.title, class: "font-semibold text-lg"
         end
         small "by #{snippet.creator.email}", class: "text-gray-700"
       end

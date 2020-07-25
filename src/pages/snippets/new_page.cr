@@ -6,7 +6,11 @@ class Snippets::NewPage < MainLayout
   end
 
   def content
-    render_form(@save_snippet)
+    section class: "mx-2 md:mx-10" do
+      h1 "Create a New Snippet", class: "text-xl font-semibold text-center my-4"
+
+      render_form(@save_snippet)
+    end
   end
 
   private def render_form(op)

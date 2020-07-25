@@ -12,12 +12,12 @@ class RevisionComponent < BaseComponent
         raw revision.content
       end
 
-      div class: "bg-indigo-100 p-2 leading-tight" do
+      div class: "bg-indigo-100 p-2 leading-tight overflow-x-hidden" do
         div class: "font-semibold" do
           if render_link?
             render_revision_link
           else
-            span revision_author
+            span revision.author
           end
         end
 
@@ -31,16 +31,8 @@ class RevisionComponent < BaseComponent
   end
 
   private def render_revision_link
-    link revision_author,
+    link revision.author,
       to: Snippets::Revisions::Show.with(revision.snippet.slug, revision.id),
       class: "hover:text-indigo-500"
-  end
-
-  private def revision_author
-    if (creator = revision.creator)
-      return creator.email
-    else
-      return revision.creator_name || "Anonymous"
-    end
   end
 end

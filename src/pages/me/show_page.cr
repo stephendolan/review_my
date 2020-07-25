@@ -4,10 +4,12 @@ class Me::ShowPage < MainLayout
   end
 
   def content
-    h1 "Hey, #{current_user.email}!", class: "text-lg text-center"
+    section class: "mx-2 md:mx-10 my-2 md:my-10" do
+      h1 "Hey, #{current_user.email}!", class: "text-lg text-center"
 
-    para class: "text-center mt-10" do
-      text "You can't do too much right now... but more will be coming soon!"
+      para class: "text-center mt-10" do
+        text "You can't do too much right now... but more will be coming soon!"
+      end
     end
   end
 end

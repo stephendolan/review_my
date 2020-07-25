@@ -22,7 +22,7 @@ abstract class MainLayout
         m Shared::Navbar, current_user: current_user
         m Shared::FlashMessages, context.flash
 
-        section class: "flex-grow mx-2 md:mx-10 my-2 md:my-6 flex flex-col items-stretch" do
+        section class: "flex-grow flex flex-col items-stretch" do
           content
         end
 

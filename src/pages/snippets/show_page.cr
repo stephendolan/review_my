@@ -6,20 +6,22 @@ class Snippets::ShowPage < MainLayout
   end
 
   def content
-    m SnippetComponent, snippet: snippet, render_share_link: true
+    section class: "mx-2 md:mx-10 my-2 md:my-10" do
+      m SnippetComponent, snippet: snippet, render_share_link: true
 
-    if snippet.revisions.any?
-      h1 "Revisions", class: "text-center font-semibold mt-4"
+      if snippet.revisions.any?
+        h1 "Revisions", class: "text-center font-semibold mt-4"
 
-      render_revisions
-    else
-      h1 "No revisions yet! Request some using the link above!", class: "text-center font-semibold mt-12"
-    end
+        render_revisions
+      else
+        h1 "No revisions yet! Request some using the link above!", class: "text-center font-semibold mt-12"
+      end
 
-    if not_snippet_creator? && no_existing_revision?
-      link "Submit a Revision",
-        to: Snippets::Revisions::New.with(snippet_id: snippet.slug),
-        class: "text-center bg-indigo-500 hover:bg-indigo-700 text-gray-100 font-bold mt-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      if not_snippet_creator? && no_existing_revision?
+        link "Submit a Revision",
+          to: Snippets::Revisions::New.with(snippet_id: snippet.slug),
+          class: "text-center bg-indigo-500 hover:bg-indigo-700 text-gray-100 font-bold mt-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      end
     end
   end
 

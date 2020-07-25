@@ -5,4 +5,12 @@ class Revision < BaseModel
     column creator_name : String?
     belongs_to creator : User?
   end
+
+  def author : String
+    if (user = creator)
+      user.email
+    else
+      creator_name || "Anonymous"
+    end
+  end
 end
