@@ -1,4 +1,6 @@
 class Dashboard::Index < BrowserAction
+  RECENT_ACTIVITY_LIMIT = 8
+
   route do
     html Dashboard::IndexPage, snippets: snippets, activity: recent_activity
   end
@@ -7,6 +9,7 @@ class Dashboard::Index < BrowserAction
     (revisions_by_other_users.to_a + revisions_by_current_user.to_a)
       .sort_by(&.created_at)
       .reverse
+      .first(RECENT_ACTIVITY_LIMIT)
   end
 
   private def revisions_by_current_user
