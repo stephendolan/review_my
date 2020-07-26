@@ -76,7 +76,7 @@ class Dashboard::IndexPage < MainLayout
   private def render_empty_snippets
     div class: "flex-1 flex flex-col items-center justify-center space-y-8" do
       i class: "far fa-paper-plane fa-9x text-indigo-700"
-      h1 "Create a snippet to get started!", class: "text-xl font-extrabold"
+      h1 "Create a snippet to get started!", class: "text-xl font-extrabold select-none"
       div class: "w-full md:w-3/4 lg:w-2/3 xl:w-1/3" do
         add_snippet_card(text_size: "text-xl")
       end
