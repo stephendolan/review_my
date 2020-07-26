@@ -2,7 +2,7 @@ class Shared::Navbar < BaseComponent
   needs current_user : User?
 
   def render
-    nav class: "w-full flex items-center justify-between bg-gray-200 border-b px-6 py-4" do
+    nav class: "w-full flex items-center justify-between bg-gray-200 border-b px-6 py-4 select-none" do
       link to: Home::Index, class: "font-extrabold text-lg #{link_color}" do
         span "ReviewMy"
         span "Email", class: "text-indigo-700"

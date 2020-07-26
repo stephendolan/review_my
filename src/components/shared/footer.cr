@@ -1,6 +1,6 @@
 class Shared::Footer < BaseComponent
   def render
-    nav class: "w-full flex items-center justify-between bg-gray-100 border-t p-2" do
+    nav class: "w-full flex items-center justify-between bg-gray-100 border-t p-2 select-none" do
       span class: "text-xs font-semibold" do
         text "© #{Time.local.year} StephenCodes"
       end
