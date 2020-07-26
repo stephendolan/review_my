@@ -8,7 +8,7 @@ class Dashboard::IndexPage < MainLayout
 
   def content
     div class: "flex flex-1" do
-      div class: "hidden md:block border-r border-gray shadow-lg px-4 lg:px-8 space-y-2 py-4 max-w-xs select-none" do
+      div class: "hidden md:block border-r border-gray shadow-lg px-4 space-y-2 py-4 max-w-xs select-none" do
         render_recent_activity_sidebar
       end
 
