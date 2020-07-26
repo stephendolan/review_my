@@ -21,7 +21,7 @@ class RevisionComponent < BaseComponent
           end
         end
 
-        small "#{time_ago_in_words(revision.created_at)} ago", class: "text-gray-700"
+        small "submitted #{time_ago_in_words(revision.created_at)} ago", class: "text-gray-700"
       end
 
       div class: "p-4 trix-content", data_target: "diff.display" do
