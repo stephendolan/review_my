@@ -4,7 +4,7 @@
   "dependencies": {
     "@babel/compat-data": "^7.9.0",
     "@rails/ujs": "^6.0.0",
-    "fast-diff": "^1.2.0",
+    "diff-match-patch": "^1.0.5",
     "he": "^1.2.0",
     "normalize-scss": "^7.0.1",
     "stimulus": "^1.1.1",

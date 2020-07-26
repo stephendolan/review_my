@@ -1,5 +1,5 @@
 import { Controller } from "stimulus";
-import diff from "fast-diff";
+import DiffMatchPatch from "diff-match-patch";
 import he from "he";
 
 // Given an old and new target, calculate the difference and display
@@ -21,7 +21,9 @@ export default class extends Controller {
     const oldContent = this.sanitize(this.oldTarget.innerHTML);
     const newContent = this.sanitize(this.newTarget.innerHTML);
 
-    const htmlDiff = diff(oldContent, newContent);
+    const diff = new DiffMatchPatch();
+    const htmlDiff = diff.diff_main(oldContent, newContent);
+    diff.diff_cleanupSemantic(htmlDiff);
 
     htmlDiff.forEach((section, index) => {
       const [status, content] = section;
