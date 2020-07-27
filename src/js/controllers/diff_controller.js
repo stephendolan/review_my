@@ -18,62 +18,49 @@ export default class extends Controller {
   }
 
   calculateAndDisplayDiff() {
-    const oldContent = this.sanitize(this.oldTarget.innerHTML);
-    const newContent = this.sanitize(this.newTarget.innerHTML);
+    const oldContent = this.oldTarget.innerHTML;
+    const newContent = this.newTarget.innerHTML;
 
-    const diff = new DiffMatchPatch();
-    const htmlDiff = diff.diff_main(oldContent, newContent);
-    diff.diff_cleanupSemantic(htmlDiff);
+    const prettyDiff = this.prettyDiff(oldContent, newContent);
 
-    htmlDiff.forEach((section, index) => {
-      const [status, content] = section;
-
-      if (this.skipContent(content)) {
-        return;
-      }
-
-      if (status === -1) {
-        htmlDiff[index][1] = `<span class="bg-red-300">${content}</span>`;
-      }
-
-      if (status === 1) {
-        htmlDiff[index][1] = `<span class="bg-green-300">${content}</span>`;
-      }
-    });
-
-    this.displayTarget.innerHTML = this.joinDiff(htmlDiff);
+    this.displayTarget.innerHTML = this.sanitize(prettyDiff);
   }
 
-  skipContent(content) {
-    const htmlComment = /^(<!--[^>]*?-->)*$/;
-    const htmlTag = /^(<[^>]*?>)*$/;
+  prettyDiff(oldText, newText) {
+    const differ = new DiffMatchPatch();
 
-    if (content.match(htmlComment)) {
-      return true;
-    }
+    // Get the main diff, character by character
+    const htmlDiff = differ.diff_main(oldText, newText);
 
-    if (content.match(htmlTag)) {
-      return true;
-    }
+    // Make the diff output a bit more readable to a human
+    differ.diff_cleanupSemantic(htmlDiff);
 
-    return false;
+    // Take the diff and turn it into valid HTML
+    return differ.diff_prettyHtml(htmlDiff);
   }
 
-  sanitize(content) {
-    const strippedContent = content.replace(/<!--\s*block\s*-->/g, "");
-    const decodedContent = he.decode(strippedContent);
+  // Because we're dealing with a Trix editor, <div>s are the only
+  // block elements we really run into issues with around <ins> and <del> inline elements.
+  // This removes all of the divs, and then wraps them around <br> tags to preserve whitespace.
+  sanitize(html) {
+    let returnHtml = he.decode(html);
 
-    return decodedContent;
-  }
+    // Move newlines from divs to brs
+    returnHtml = returnHtml.replace(/<\/?div>/g, "");
+    returnHtml = returnHtml.replace(/<br>/g, "<div><br></div>");
 
-  joinDiff(diffArray) {
-    let returnString = "";
+    // Replace <ins> backgrounds with TailwindCSS colors
+    returnHtml = returnHtml.replace(
+      /<ins style="background:#.{6};">/g,
+      '<ins class="bg-green-200">'
+    );
 
-    diffArray.forEach(section => {
-      const [status, content] = section;
-      returnString += content;
-    });
+    // Replace <del> backgrounds with TailwindCSS colors
+    returnHtml = returnHtml.replace(
+      /<del style="background:#.{6};">/g,
+      '<del class="bg-red-200">'
+    );
 
-    return returnString;
+    return returnHtml;
   }
 }
