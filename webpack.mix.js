@@ -23,7 +23,7 @@ if (mix.inProduction()) {
   let CompressionWepackPlugin = require("compression-webpack-plugin");
   let gzipCompression = new CompressionWepackPlugin({
     compressionOptions: { level: 9 },
-    test: /\.js$|\.ts$|\.css$|\.html$|\.svg$/
+    test: /\.js$|\.css$|\.html$|\.svg$/
   });
   plugins.push(gzipCompression);
 
