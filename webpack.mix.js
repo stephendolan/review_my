@@ -14,7 +14,7 @@ let plugins = [];
 let WebpackNotifierPlugin = require("webpack-notifier");
 let webpackNotifier = new WebpackNotifierPlugin({
   alwaysNotify: false,
-  skipFirstNotification: true,
+  skipFirstNotification: true
 });
 plugins.push(webpackNotifier);
 
@@ -23,7 +23,7 @@ if (mix.inProduction()) {
   let CompressionWepackPlugin = require("compression-webpack-plugin");
   let gzipCompression = new CompressionWepackPlugin({
     compressionOptions: { level: 9 },
-    test: /\.js$|\.css$|\.html$|\.svg$/,
+    test: /\.js$|\.ts$|\.css$|\.html$|\.svg$/
   });
   plugins.push(gzipCompression);
 
@@ -46,7 +46,7 @@ mix
   //
   // More info and options (like React support) here:
   // https://github.com/JeffreyWay/laravel-mix/blob/master/docs/mixjs.md
-  .js("src/js/app.js", "public/js")
+  .ts("src/js/app.ts", "public/js/app.js")
   // SASS entry file. Uses autoprefixer automatically.
   .sass("src/css/app.scss", "public/css")
   // Customize postCSS:
@@ -58,7 +58,7 @@ mix
     // Stops Mix from clearing the console when compilation succeeds
     clearConsole: false,
     processCssUrls: false,
-    postCss: [tailwindcss("./src/css/tailwind.config.js")],
+    postCss: [tailwindcss("./src/css/tailwind.config.js")]
   })
   // Set public path so manifest gets output here
   .setPublicPath("public")
@@ -69,8 +69,8 @@ mix
     stats: "errors-only",
     plugins: plugins,
     watchOptions: {
-      ignored: /node_modules/,
-    },
+      ignored: /node_modules/
+    }
   })
   // Disable default Mix notifications because we're using our own notifier
   .disableNotifications();

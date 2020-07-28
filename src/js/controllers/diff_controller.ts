@@ -1,15 +1,19 @@
 import { Controller } from "stimulus";
-import DiffMatchPatch from "diff-match-patch";
+import { diff_match_patch } from "diff-match-patch";
 import he from "he";
 
 // Given an old and new target, calculate the difference and display
 // it in the display target.
 export default class extends Controller {
-  static get targets() {
+  readonly newTarget!: Element;
+  readonly oldTarget!: Element;
+  readonly displayTarget!: Element;
+
+  static get targets(): Array<string> {
     return ["old", "new", "display"];
   }
 
-  initialize() {
+  initialize(): void {
     this.calculateAndDisplayDiff();
 
     this.newTarget.addEventListener("trix-change", () => {
@@ -17,7 +21,7 @@ export default class extends Controller {
     });
   }
 
-  calculateAndDisplayDiff() {
+  calculateAndDisplayDiff(): void {
     const oldContent = this.oldTarget.innerHTML;
     const newContent = this.newTarget.innerHTML;
 
@@ -26,8 +30,8 @@ export default class extends Controller {
     this.displayTarget.innerHTML = this.sanitize(prettyDiff);
   }
 
-  prettyDiff(oldText, newText) {
-    const differ = new DiffMatchPatch();
+  prettyDiff(oldText: string, newText: string): string {
+    const differ = new diff_match_patch();
 
     // Get the main diff, character by character
     const htmlDiff = differ.diff_main(oldText, newText);
@@ -42,7 +46,7 @@ export default class extends Controller {
   // Because we're dealing with a Trix editor, <div>s are the only
   // block elements we really run into issues with around <ins> and <del> inline elements.
   // This removes all of the divs, and then wraps them around <br> tags to preserve whitespace.
-  sanitize(html) {
+  sanitize(html: string): string {
     let returnHtml = he.decode(html);
 
     // Move newlines from divs to brs
