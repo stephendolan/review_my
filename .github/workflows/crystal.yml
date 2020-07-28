@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     env:
       LUCKY_ENV: test
@@ -54,8 +54,14 @@ jobs:
           restore_keys: |
             ${{ runner.os }}-crystal-
 
-      - name: Run Lucky setup script
-        run: ./script/setup
+      - name: Install shards
+        run: shards install
 
-      - name: Run tests
-        run: crystal spec
+      - name: Crystal Format
+        run: crystal tool format --check
+
+      - name: Install packages
+        run: yarn install
+
+      - name: Prettier Lint
+        run: yarn run prettier  --check src/**/*.{js,ts}
