@@ -60,8 +60,11 @@ jobs:
       - name: Crystal Format
         run: crystal tool format --check
 
+      - name: Ameba check
+        run: ./bin/ameba
+
       - name: Install packages
         run: yarn install
 
       - name: Prettier Lint
-        run: yarn run prettier  --check src/**/*.{js,ts}
+        run: yarn run prettier --check src/**/*.{js,ts}

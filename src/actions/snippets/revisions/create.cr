@@ -13,17 +13,17 @@ class Snippets::Revisions::Create < BrowserAction
 
     if snippet.creator == user
       redirect to: Snippets::Show.with(snippet.slug)
-    elsif user && (revision = snippet.revisions.find { |revision| revision.creator == user })
+    elsif user && (revision = snippet.revisions.find { |rev| rev.creator == user })
       redirect to: Snippets::Revisions::Show.with(snippet_id: snippet.slug, revision_id: revision.id)
     else
-      SaveRevision.create(params, current_user: user, snippet: snippet) do |operation, revision|
-        if revision
+      SaveRevision.create(params, current_user: user, snippet: snippet) do |operation, created_revision|
+        if created_revision
           flash.success = "Your revision was created!"
 
           if snippet.creator == user
             redirect to: Snippets::Show.with(snippet.slug)
-          elsif user && revision.creator_id == user.id
-            redirect to: Snippets::Revisions::Show.with(snippet_id: snippet.slug, revision_id: revision.id)
+          elsif user && created_revision.creator_id == user.id
+            redirect to: Snippets::Revisions::Show.with(snippet_id: snippet.slug, revision_id: created_revision.id)
           else
             redirect to: Home::Index
           end

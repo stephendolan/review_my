@@ -13,7 +13,7 @@ class Snippets::Revisions::New < BrowserAction
 
     if snippet.creator == user
       redirect to: Snippets::Show.with(snippet.slug)
-    elsif user && (revision = snippet.revisions.find { |revision| revision.creator == user })
+    elsif user && (revision = snippet.revisions.find { |rev| rev.creator == user })
       redirect to: Snippets::Revisions::Show.with(snippet_id: snippet.slug, revision_id: revision.id)
     else
       html Snippets::Revisions::NewPage,
