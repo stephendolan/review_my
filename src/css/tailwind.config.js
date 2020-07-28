@@ -4,11 +4,11 @@ module.exports = {
     "./src/pages/**/*.cr",
     "./src/components/**/*.cr",
     "./src/js/controllers/**/*_controller.js",
-    "./src/js/controllers/**/*_controller.ts"
+    "./src/js/controllers/**/*_controller.ts",
   ],
   theme: {
-    extend: {}
+    extend: {},
   },
   variants: {},
-  plugins: []
+  plugins: [],
 };

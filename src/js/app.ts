@@ -9,7 +9,7 @@ require("turbolinks").start();
 
 require("trix");
 
-document.addEventListener("trix-file-accept", function(event) {
+document.addEventListener("trix-file-accept", function (event) {
   event.preventDefault();
 });
 
