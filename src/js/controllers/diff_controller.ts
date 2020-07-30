@@ -22,8 +22,8 @@ export default class extends Controller {
   }
 
   calculateAndDisplayDiff(): void {
-    const oldContent = this.oldTarget.innerHTML;
-    const newContent = this.newTarget.innerHTML;
+    const oldContent = this.stripComments(this.oldTarget.innerHTML);
+    const newContent = this.stripComments(this.newTarget.innerHTML);
 
     const prettyDiff = this.prettyDiff(oldContent, newContent);
 
@@ -43,6 +43,10 @@ export default class extends Controller {
     return differ.diff_prettyHtml(htmlDiff);
   }
 
+  stripComments(html: string): string {
+    return html.replace(/<!--\s*block\s*-->/g, "");
+  }
+
   // Because we're dealing with a Trix editor, <div>s are the only
   // block elements we really run into issues with around <ins> and <del> inline elements.
   // This removes all of the divs, and then wraps them around <br> tags to preserve whitespace.
@@ -51,7 +55,6 @@ export default class extends Controller {
 
     // Move newlines from divs to brs, strip comments
     returnHtml = returnHtml.replace(/<\/?div>/g, "");
-    returnHtml = returnHtml.replace(/<!--\s*block\s*-->/g, "");
     returnHtml = returnHtml.replace(/<br>/g, "<div><br></div>");
 
     // Replace <ins> backgrounds with TailwindCSS colors
