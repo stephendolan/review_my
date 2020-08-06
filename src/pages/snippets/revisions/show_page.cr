@@ -1,4 +1,4 @@
-class Snippets::Revisions::ShowPage < MainLayout
+class Snippets::Revisions::ShowPage < Private::WrappedLayout
   needs revision : Revision
 
   def page_title

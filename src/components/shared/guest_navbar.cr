@@ -1,44 +1,21 @@
-class Shared::Navbar < BaseComponent
-  needs current_user : User?
-
+class Shared::GuestNavbar < BaseComponent
   def render
-    user = current_user
-
     nav class: "bg-gray-800" do
       div class: "max-w-7xl mx-auto sm:px-6 lg:px-8" do
         div class: "border-b border-gray-700" do
           div class: "flex items-center justify-between h-16 px-4 sm:px-0" do
             div class: "flex items-center" do
               render_logo
-
-              div class: "hidden md:block" do
-                div class: "ml-10 flex items-baseline" do
-                  link "My Dashboard",
-                    to: Dashboard::Index,
-                    class: "ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-                end
-              end
             end
 
             div class: "hidden md:block" do
-              div class: "ml-4 flex items-center md:ml-6" do
-                div class: "relative" do
-                  div do
-                    button aria_haspopup: "true", aria_label: "User menu", class: "max-w-xs flex items-center text-sm rounded-full text-white focus:outline-none focus:shadow-solid", id: "user-menu" do
-                      # img src: user.gravatar_url(size: 16), class: "w-8 h-8 rounded-full"
-
-                    end
-                  end
-                  div class: "origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg" do
-                    div class: "py-1 rounded-md bg-white shadow-xs" do
-                      a "Your Profile", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", href: "#"
-                      a "Settings", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", href: "#"
-                      a "Sign out", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", href: "#"
-                    end
-                  end
-                end
+              div class: "ml-10 flex items-baseline" do
+                link "My Dashboard",
+                  to: Dashboard::Index,
+                  class: "ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
               end
             end
+
             div class: "-mr-2 flex md:hidden" do
               button class: "inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white" do
                 tag "svg", class: "block h-6 w-6", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24" do

@@ -1,4 +1,4 @@
-class Snippets::ShowPage < MainLayout
+class Snippets::ShowPage < Private::WrappedLayout
   needs snippet : Snippet
 
   def page_title

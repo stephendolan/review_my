@@ -1,4 +1,4 @@
-class Dashboard::IndexPage < MainLayout
+class Dashboard::IndexPage < Private::WrappedLayout
   needs snippets : SnippetQuery
   needs activity : Array(Revision)
 

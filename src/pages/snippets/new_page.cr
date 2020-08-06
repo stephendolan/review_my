@@ -1,4 +1,4 @@
-class Snippets::NewPage < MainLayout
+class Snippets::NewPage < Private::WrappedLayout
   needs save_snippet : SaveSnippet
 
   def page_title

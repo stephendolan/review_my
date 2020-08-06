@@ -1,4 +1,4 @@
-class Snippets::Revisions::NewPage < PublicLayout
+class Snippets::Revisions::NewPage < Public::WrappedLayout
   needs snippet : Snippet
   needs save_revision : SaveRevision
 

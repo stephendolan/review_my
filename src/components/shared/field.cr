@@ -37,10 +37,12 @@ class Shared::Field(T) < BaseComponent
 
   def render
     div do
-      label_for attribute, label_text, class: "block text-gray-700 text-sm font-bold mb-1"
+      label_for attribute, label_text, class: "block text-sm font-medium leading-5 text-gray-700"
 
-      with_defaults field: attribute, class: input_classes do |input_builder|
-        yield input_builder
+      div class: "mt-1 rounded-md shadow-sm" do
+        with_defaults field: attribute, class: input_classes do |input_builder|
+          yield input_builder
+        end
       end
 
       m Shared::FieldErrors, attribute
@@ -53,6 +55,6 @@ class Shared::Field(T) < BaseComponent
   end
 
   private def input_classes
-    "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
   end
 end
