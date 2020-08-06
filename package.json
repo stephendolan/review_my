@@ -9,8 +9,8 @@
     "he": "^1.2.0",
     "normalize-scss": "^7.0.1",
     "stimulus": "^1.1.1",
-    "tailwindcss": "^1.6.0",
-    "trix": "^1.2.3",
+    "tailwindcss": "^1.6.2",
+    "trix": "^1.2.4",
     "turbolinks": "^5.2.0"
   },
   "scripts": {
@@ -24,17 +24,17 @@
     "@types/he": "^1.1.1",
     "@types/node": "^14.0.27",
     "@types/webpack-env": "^1.15.2",
-    "@typescript-eslint/eslint-plugin": "^3.7.1",
-    "@typescript-eslint/parser": "^3.7.1",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
     "browser-sync": "^2.26.12",
     "compression-webpack-plugin": "^4.0.0",
-    "eslint": "^7.5.0",
+    "eslint": "^7.6.0",
     "laravel-mix": "^5.0.4",
     "prettier": "^2.0.5",
     "resolve-url-loader": "3.1.1",
     "sass": "1.26.10",
-    "sass-loader": "^9.0.2",
-    "ts-loader": "^8.0.1",
+    "sass-loader": "^9.0.3",
+    "ts-loader": "^8.0.2",
     "typescript": "^3.9.7",
     "vue-template-compiler": "^2.5.22"
   }
