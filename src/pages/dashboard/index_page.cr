@@ -6,6 +6,10 @@ class Dashboard::IndexPage < Private::WrappedLayout
     "Dashboard"
   end
 
+  def page_header
+    "My Dashboard"
+  end
+
   def content
     div class: "flex flex-1" do
       div class: "hidden md:block border-r border-gray shadow-lg px-4 space-y-2 py-4 max-w-xs select-none" do
