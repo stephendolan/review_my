@@ -21,7 +21,7 @@ abstract class Private::WrappedLayout
     html lang: "en" do
       m Shared::LayoutHead, page_title: page_title, context: context
 
-      body class: "flex flex-col min-h-screen" do
+      body class: "flex flex-col" do
         div class: "bg-gray-800 pb-32" do
           m Shared::Navbar, current_user: (user = current_user)
           m Shared::PageHeader, title: page_header
