@@ -5,15 +5,6 @@ abstract class Private::WrappedLayout
 
   abstract def content
   abstract def page_title
-  abstract def page_header
-
-  def page_title
-    ""
-  end
-
-  def page_header
-    ""
-  end
 
   def render
     html_doctype
@@ -24,7 +15,7 @@ abstract class Private::WrappedLayout
       body class: "flex flex-col" do
         div class: "bg-gray-800 pb-32" do
           m Shared::Navbar, current_user: (user = current_user)
-          m Shared::PageHeader, title: page_header
+          m Shared::PageHeader, title: page_title
         end
 
         main class: "-mt-32" do

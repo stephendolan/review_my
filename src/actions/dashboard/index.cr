@@ -1,8 +1,8 @@
 class Dashboard::Index < BrowserAction
-  RECENT_ACTIVITY_LIMIT = 8
+  RECENT_ACTIVITY_LIMIT = 10
 
   route do
-    html Dashboard::IndexPage, snippets: snippets, activity: recent_activity
+    html Dashboard::IndexPage, snippets: snippets, activities: recent_activity
   end
 
   private def recent_activity

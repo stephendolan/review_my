@@ -5,15 +5,6 @@ abstract class Public::WrappedLayout
 
   abstract def content
   abstract def page_title
-  abstract def page_header
-
-  def page_title
-    ""
-  end
-
-  def page_header
-    ""
-  end
 
   def render
     html_doctype
@@ -29,13 +20,15 @@ abstract class Public::WrappedLayout
             m Shared::GuestNavbar
           end
 
-          m Shared::PageHeader, title: page_header
+          m Shared::PageHeader, title: page_title
         end
 
         main class: "-mt-32" do
           m Shared::FlashMessages, context.flash
           div class: "max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8" do
-            content
+            div class: "bg-white rounded-lg shadow px-5 py-6 sm:px-6" do
+              content
+            end
           end
         end
       end

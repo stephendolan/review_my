@@ -7,10 +7,6 @@ abstract class Public::SimpleLayout
   abstract def content
   abstract def page_title
 
-  def page_title
-    ""
-  end
-
   def render
     html_doctype
 
@@ -29,7 +25,7 @@ abstract class Public::SimpleLayout
         main class: "bg-gray-50" do
           m Shared::FlashMessages, context.flash
 
-          div class: "max-w-7xl mx-auto py-6 sm:px-6 lg:px-8" do
+          div class: "mx-auto pt-6" do
             content
           end
         end
