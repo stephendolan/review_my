@@ -7,14 +7,12 @@ class Snippets::NewPage < Private::WrappedLayout
 
   def content
     section class: "mx-2 md:mx-10" do
-      h1 "Create a New Snippet", class: "text-xl font-semibold text-center my-4"
-
       render_form(@save_snippet)
     end
   end
 
   private def render_form(op)
-    form_for Snippets::Create, class: "flex-1 flex flex-col space-y-4" do
+    form_for Snippets::Create, class: "flex-1 flex flex-col space-y-6" do
       m Shared::Field, op.title, &.text_input(autofocus: true, placeholder: "A short and sweet summary of your snippet")
 
       render_domain_restriction_checkbox(op)
@@ -33,9 +31,7 @@ class Snippets::NewPage < Private::WrappedLayout
 
       m Shared::FieldLabel, op.content
       m Shared::FieldErrors, op.content
-      div class: "flex-grow flex flex-col" do
-        tag("trix-editor", input: "snippet_content", class: "flex-grow trix-content", placeholder: "Your snippet content")
-      end
+      tag("trix-editor", input: "snippet_content", class: "trix-content", placeholder: "Your snippet content")
     end
   end
 

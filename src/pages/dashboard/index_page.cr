@@ -67,7 +67,9 @@ class Dashboard::IndexPage < Private::SimpleLayout
               para "#{time_ago_in_words(activity.created_at)} ago", class: "text-sm leading-5 text-gray-500"
             end
 
-            para "Revised '#{activity.snippet.title}'", class: "text-sm leading-5 text-gray-500"
+            link to: Snippets::Revisions::Show.with(snippet_id: activity.snippet.slug, revision_id: activity) do
+              span "Revised '#{activity.snippet.title}'", class: "relative text-sm leading-5 text-gray-500 hover:text-gray-900 font-medium"
+            end
           end
         end
       end

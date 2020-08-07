@@ -19,17 +19,22 @@ class Snippets::Revisions::NewPage < Public::WrappedLayout
   end
 
   private def render_form(op)
-    h1 "Your Revision", class: "text-center font-semibold text-lg mt-4"
+    h1 "Your Revision", class: "text-center font-semibold text-lg my-6"
 
-    form_for Snippets::Revisions::Create.with(snippet.slug), class: "flex-1 flex flex-col" do
+    form_for Snippets::Revisions::Create.with(snippet.slug), class: "space-y-6" do
       unless current_user
         m Shared::Field, op.creator_name, "Your name", &.text_input(autofocus: true, placeholder: "Sign up to avoid entering this every time!")
       end
 
-      op.content.value = snippet.content
-      div class: "flex-grow flex flex-col mt-4" do
-        m Shared::Field, op.content, "Revised content", &.textarea(append_class: "hidden")
-        tag "trix-editor", input: "revision_content", class: "flex-grow trix-content", autofocus: true, data_target: "diff.new"
+      div do
+        op.content.value = snippet.content
+        div class: "hidden" do
+          m Shared::Field, op.content, &.textarea
+        end
+        m Shared::FieldLabel, op.content, "Revised content"
+        m Shared::FieldErrors, op.content
+
+        tag "trix-editor", input: "revision_content", class: "trix-content", autofocus: true, data_target: "diff.new"
       end
 
       submit "Submit", class: "bg-indigo-500 hover:bg-indigo-700 text-gray-100 font-bold mt-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"
