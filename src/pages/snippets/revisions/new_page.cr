@@ -7,7 +7,7 @@ class Snippets::Revisions::NewPage < Public::WrappedLayout
   end
 
   def content
-    section class: "mx-2 md:mx-10 my-2 md:my-10", data_controller: "diff" do
+    section class: "px-2 sm:px-6", data_controller: "diff" do
       m SnippetComponent, snippet: snippet
 
       div class: "hidden", data_target: "diff.old" do

@@ -6,7 +6,7 @@ class Snippets::NewPage < Private::WrappedLayout
   end
 
   def content
-    section class: "mx-2 md:mx-10" do
+    section class: "px-2 sm:px-6" do
       render_form(@save_snippet)
     end
   end
