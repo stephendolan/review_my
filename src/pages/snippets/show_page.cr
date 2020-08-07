@@ -2,7 +2,7 @@ class Snippets::ShowPage < Private::WrappedLayout
   needs snippet : Snippet
 
   def page_title
-    "Snippet - #{snippet.title}"
+    snippet.title
   end
 
   def content
