@@ -1,10 +1,10 @@
-class Marketing::IndexPage < AuthLayout
+class Marketing::IndexPage < Public::SimpleLayout
   def page_title
     "Welcome"
   end
 
   def content
-    div class: "select-none bg-white" do
+    div class: "select-none" do
       div class: "px-6 py-6 sm:py-20 lg:py-32 flex flex-col lg:flex-row text-center lg:text-left items-center justify-center lg:space-x-12 space-y-12 lg:space-y-0" do
         div class: "md:max-w-2xl" do
           render_main_title

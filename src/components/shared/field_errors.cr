@@ -4,7 +4,7 @@ class Shared::FieldErrors(T) < BaseComponent
   # Customize the markup and styles to match your application
   def render
     unless attribute.valid?
-      para class: "text-red-500 text-xs italic mt-1" do
+      para class: "mt-1 text-xs italic text-red-600" do
         text "#{label_text} #{attribute.errors.first}"
       end
     end

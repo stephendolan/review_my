@@ -37,10 +37,14 @@ class Shared::Field(T) < BaseComponent
 
   def render
     div do
-      label_for attribute, label_text, class: "block text-gray-700 text-sm font-bold mb-1"
+      m Shared::FieldLabel, attribute, label_text
 
-      with_defaults field: attribute, class: input_classes do |input_builder|
-        yield input_builder
+      div class: "mt-1 relative rounded-md shadow-sm" do
+        with_defaults field: attribute, class: input_classes do |input_builder|
+          yield input_builder
+        end
+
+        render_warning_symbol unless attribute.valid?
       end
 
       m Shared::FieldErrors, attribute
@@ -52,7 +56,22 @@ class Shared::Field(T) < BaseComponent
     render &.text_input
   end
 
+  private def render_warning_symbol
+    div class: "absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none" do
+      tag "svg", class: "h-5 w-5 text-red-500", fill: "currentColor", viewBox: "0 0 20 20" do
+        tag "path", clip_rule: "evenodd", d: "M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z", fill_rule: "evenodd"
+      end
+    end
+  end
+
   private def input_classes
-    "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    base_classes = "form-input block w-full sm:text-sm sm:leading-5"
+    error_classes = "pr-10 border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red"
+
+    if attribute.valid?
+      base_classes
+    else
+      [base_classes, error_classes].join(" ")
+    end
   end
 end

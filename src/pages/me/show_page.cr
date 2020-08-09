@@ -1,4 +1,4 @@
-class Me::ShowPage < MainLayout
+class Me::ShowPage < Private::WrappedLayout
   def page_title
     current_user.email
   end

@@ -1,4 +1,4 @@
-class PasswordResets::NewPage < AuthLayout
+class PasswordResets::NewPage < Public::SimpleLayout
   needs operation : ResetPassword
   needs user_id : UUID
 
@@ -7,25 +7,27 @@ class PasswordResets::NewPage < AuthLayout
   end
 
   def content
-    div class: "w-full sm:max-w-xs mx-auto mt-10" do
-      render_password_reset_form(@operation)
+    m Shared::CenteredFormPanel, title: title_text do
+      render_form(operation)
     end
   end
 
-  private def render_password_reset_form(op)
-    form_for PasswordResets::Create.with(@user_id), class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" do
-      h1 "Reset your password", class: "font-semibold text-lg text-center mt-2 mb-4"
-
-      div class: "space-y-4" do
+  private def render_form(op)
+    form_for PasswordResets::Create.with(user_id) do
+      div class: "space-y-6" do
         m Shared::Field, op.password, "Password", &.password_input(autofocus: "true")
         m Shared::Field, op.password_confirmation, "Confirm Password", &.password_input
       end
 
-      div class: "mt-4" do
-        div class: "flex items-center justify-between" do
-          submit "Update Password", class: "bg-indigo-500 hover:bg-indigo-700 text-gray-100 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer", flow_id: "update-password-button"
+      div class: "mt-6" do
+        span class: "block w-full rounded-md shadow-sm" do
+          submit "Update password", class: "w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 cursor-pointer focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out", flow_id: "update-password-button"
         end
       end
     end
+  end
+
+  private def title_text
+    "Reset your password"
   end
 end
