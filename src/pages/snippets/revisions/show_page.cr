@@ -1,5 +1,6 @@
 class Snippets::Revisions::ShowPage < Private::WrappedLayout
   needs revision : Revision
+  needs snippet : Snippet = revision.snippet
 
   def page_title
     if (creator = revision.creator)
@@ -10,17 +11,14 @@ class Snippets::Revisions::ShowPage < Private::WrappedLayout
   end
 
   def content
-    section class: "mx-2 md:mx-10 my-2 md:my-10" do
-      m SnippetComponent, snippet: revision.snippet
+    div class: "bg-white overflow-hidden shadow rounded-lg" do
+      m Snippet::CardHeader, snippet: snippet
 
-      h1 class: "text-center font-semibold text-lg mt-6" do
-        text "Your " if revision.creator == current_user
-        text "Revision"
+      div class: "px-4 py-5 sm:p-6 trix-content" do
+        raw snippet.content
       end
 
-      div class: "mt-2" do
-        m RevisionComponent, revision: revision
-      end
+      m Revision::DiffViewer, revision: revision
     end
   end
 end

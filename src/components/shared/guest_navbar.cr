@@ -27,7 +27,7 @@ class Shared::GuestNavbar < BaseComponent
 
   private def render_logo
     link to: Home::Index, class: "flex-shrink-0 flex items-center" do
-      m Images::Logo, height: "h-8", append_class: "hover:text-indigo-500", include_text: true
+      m Image::Logo, height: "h-8", append_class: "hover:text-indigo-500", include_text: true
     end
   end
 

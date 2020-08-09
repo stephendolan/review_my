@@ -100,6 +100,9 @@ class Dashboard::IndexPage < Private::SimpleLayout
               h2 class: "text-sm font-medium leading-5" do
                 link to: Snippets::Show.with(snippet_id: snippet.slug) do
                   span class: "absolute inset-0"
+                  span class: "mr-1" do
+                    m Snippet::PublicPrivateIcon, snippet: snippet
+                  end
                   text snippet.title
                 end
               end

@@ -1,6 +1,8 @@
 class Snippets::Delete < BrowserAction
   route do
-    snippet = SnippetQuery.find(snippet_id)
+    snippet = SnippetQuery.new
+      .creator_id(current_user.id)
+      .find(snippet_id)
 
     unless snippet.delete
       flash.failure = "Unable to delete record."

@@ -1,4 +1,4 @@
-class Images::Logo < BaseComponent
+class Image::Logo < BaseComponent
   needs height : String = "h-12"
   needs include_text : Bool = false
   needs hoverable : Bool = false

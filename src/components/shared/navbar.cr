@@ -92,7 +92,7 @@ class Shared::Navbar < BaseComponent
 
   private def render_logo
     link to: Home::Index, class: "flex-shrink-0 flex items-center" do
-      m Images::Logo, height: "h-8", hoverable: true, include_text: true
+      m Image::Logo, height: "h-8", hoverable: true, include_text: true
     end
   end
 end

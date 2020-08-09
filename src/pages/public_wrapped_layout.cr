@@ -26,9 +26,7 @@ abstract class Public::WrappedLayout
         main class: "-mt-32" do
           m Shared::FlashMessages, context.flash
           div class: "max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8" do
-            div class: "bg-white rounded-lg shadow px-5 py-6 sm:px-6" do
-              content
-            end
+            content
           end
         end
       end

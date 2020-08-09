@@ -7,14 +7,20 @@ class Snippets::Revisions::NewPage < Public::WrappedLayout
   end
 
   def content
-    section class: "px-2 sm:px-6", data_controller: "diff" do
-      m SnippetComponent, snippet: snippet
+    div class: "bg-white overflow-hidden shadow rounded-lg", data_controller: "diff" do
+      m Snippet::CardHeader, snippet: snippet
 
       div class: "hidden", data_target: "diff.old" do
         raw snippet.content
       end
 
-      render_form(@save_revision)
+      div class: "px-4 py-5 sm:p-6 trix-content", data_target: "diff.display" do
+        raw snippet.content
+      end
+
+      div class: "border-t border-gray-200 bg-gray-50 px-4 py-4 sm:px-6" do
+        render_form(save_revision)
+      end
     end
   end
 
@@ -34,7 +40,7 @@ class Snippets::Revisions::NewPage < Public::WrappedLayout
         m Shared::FieldLabel, op.content, "Revised content"
         m Shared::FieldErrors, op.content
 
-        tag "trix-editor", input: "revision_content", class: "trix-content", autofocus: true, data_target: "diff.new"
+        tag "trix-editor", input: "revision_content", class: "trix-content bg-white", autofocus: true, data_target: "diff.new"
       end
 
       submit "Submit", class: "bg-indigo-500 hover:bg-indigo-700 text-gray-100 font-bold mt-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"
