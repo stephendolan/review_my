@@ -8,6 +8,7 @@ class Shared::LayoutHead < BaseComponent
       utf8_charset
       title [(@page_title.empty? ? nil : @page_title), "ReviewMy"].compact.join(" | ")
       css_link asset("css/app.css"), data_turbolinks_track: "reload"
+      css_link href: "https://rsms.me/inter/inter.css"
 
       # Set up page view tracking in production only
       if Lucky::Env.production?
