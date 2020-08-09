@@ -1,8 +1,8 @@
 name: Crystal CI
 
 on:
-  # push:
-  #   branches: [master]
+  push:
+    branches: [master]
   pull_request:
     branches: [master]
 
@@ -32,6 +32,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Crystal Ameba Linter
+        uses: crystal-ameba/github-action@v0.2.5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -54,14 +59,11 @@ jobs:
           restore_keys: |
             ${{ runner.os }}-crystal-
 
-      - name: Install shards
-        run: shards install
-
       - name: Crystal Format
         run: crystal tool format --check
 
-      - name: Ameba check
-        run: ./bin/ameba
+      - name: Install shards
+        run: shards install
 
       - name: Install packages
         run: yarn install
