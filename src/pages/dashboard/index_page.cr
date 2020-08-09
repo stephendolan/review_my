@@ -1,5 +1,6 @@
 class Dashboard::IndexPage < Private::SimpleLayout
   needs snippets : SnippetQuery
+  needs snippet_count : Int64
   needs activities : Array(Revision)
 
   def page_title
@@ -122,10 +123,11 @@ class Dashboard::IndexPage < Private::SimpleLayout
             tag "path", clip_rule: "evenodd", d: "M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z", fill_rule: "evenodd"
           end
         end
+
         div class: "hidden sm:flex flex-col flex-shrink-0 items-end space-y-3" do
           para class: "flex items-center space-x-2" do
             link "View #{pluralize(snippet.revisions.size, "Revisions")}",
-              to: Snippets::Show.with(snippet_id: snippet.slug),
+              to: Snippets::Show.with(snippet.slug),
               class: "relative text-sm leading-5 text-gray-500 hover:text-gray-900 font-medium"
           end
 
@@ -176,7 +178,7 @@ class Dashboard::IndexPage < Private::SimpleLayout
     div class: "flex items-center space-x-2" do
       i class: "fas fa-layer-group text-gray-400"
 
-      span pluralize(0, "Snippet"), class: "text-sm text-gray-500 leading-5 font-medium"
+      span pluralize(snippet_count, "Snippet"), class: "text-sm text-gray-500 leading-5 font-medium"
     end
   end
 
