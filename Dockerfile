@@ -1,4 +1,4 @@
-FROM crystallang/crystal:0.35.0
+FROM crystallang/crystal:latest
 
 LABEL maintainer="stephen@stephencodes.com"
 
