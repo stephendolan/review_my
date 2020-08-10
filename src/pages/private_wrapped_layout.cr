@@ -14,7 +14,7 @@ abstract class Private::WrappedLayout
 
       body class: "flex flex-col" do
         div class: "bg-gray-800 pb-32" do
-          m Shared::Navbar, current_user: (user = current_user)
+          m Shared::Navbar, current_user: current_user
           m Shared::PageHeader, title: page_title
         end
 
