@@ -51,18 +51,27 @@ class Dashboard::IndexPage < Private::SimpleLayout
       div class: "flex space-x-3" do
         if (user = activity.creator)
           img src: user.gravatar_url(size: 64), class: "w-6 h-6 rounded-full"
+          div class: "flex-1 space-y-1" do
+            div class: "flex items-center justify-between" do
+              h3 name, class: "text-sm font-medium leading-5"
+              para "#{time_ago_in_words(activity.created_at)} ago", class: "text-sm leading-5 text-gray-500"
+            end
+
+            link to: Snippets::Revisions::Show.with(snippet_id: activity.snippet.slug, revision_id: activity) do
+              span "Revised '#{activity.snippet.title}'", class: "relative text-sm leading-5 text-gray-500 hover:text-gray-900 font-medium"
+            end
+          end
         elsif (name = activity.creator_name)
           i class: "fas fa-question-circle"
-        end
+          div class: "flex-1 space-y-1" do
+            div class: "flex items-center justify-between" do
+              h3 name, class: "text-sm font-medium leading-5"
+              para "#{time_ago_in_words(activity.created_at)} ago", class: "text-sm leading-5 text-gray-500"
+            end
 
-        div class: "flex-1 space-y-1" do
-          div class: "flex items-center justify-between" do
-            h3 name, class: "text-sm font-medium leading-5"
-            para "#{time_ago_in_words(activity.created_at)} ago", class: "text-sm leading-5 text-gray-500"
-          end
-
-          link to: Snippets::Revisions::Show.with(snippet_id: activity.snippet.slug, revision_id: activity) do
-            span "Revised '#{activity.snippet.title}'", class: "relative text-sm leading-5 text-gray-500 hover:text-gray-900 font-medium"
+            link to: Snippets::Revisions::Show.with(snippet_id: activity.snippet.slug, revision_id: activity) do
+              span "Revised '#{activity.snippet.title}'", class: "relative text-sm leading-5 text-gray-500 hover:text-gray-900 font-medium"
+            end
           end
         end
       end
