@@ -53,7 +53,7 @@ class Dashboard::IndexPage < Private::SimpleLayout
           img src: user.gravatar_url(size: 64), class: "w-6 h-6 rounded-full"
           div class: "flex-1 space-y-1" do
             div class: "flex items-center justify-between" do
-              h3 name, class: "text-sm font-medium leading-5"
+              h3 user.email, class: "text-sm font-medium leading-5"
               para "#{time_ago_in_words(activity.created_at)} ago", class: "text-sm leading-5 text-gray-500"
             end
 
