@@ -56,7 +56,7 @@ jobs:
         with:
           path: lib
           key: ${{ runner.os }}-crystal-${{ hashFiles('**/shard.lock') }}
-          restore_keys: |
+          restore-keys: |
             ${{ runner.os }}-crystal-
 
       - name: Crystal Format
