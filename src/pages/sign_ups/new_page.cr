@@ -38,6 +38,6 @@ class SignUps::NewPage < Public::SimpleLayout
   end
 
   private def title_text
-    "Sign up for ReviewMy!"
+    "Create an account"
   end
 end

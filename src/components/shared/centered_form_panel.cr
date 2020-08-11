@@ -2,7 +2,7 @@ class Shared::CenteredFormPanel < BaseComponent
   needs title : String
 
   def render
-    div class: "min-h-screen -mt-32 flex flex-col justify-center py-12 sm:px-6 lg:px-8" do
+    div class: "min-h-screen -mt-10 sm:-mt-32 flex flex-col justify-center py-12 sm:px-6 lg:px-8" do
       m Image::Logo, height: "h-16"
 
       h2 class: "mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900" do

@@ -45,6 +45,6 @@ class SignIns::NewPage < Public::SimpleLayout
   end
 
   private def title_text
-    "Sign in to your account"
+    "Sign in"
   end
 end
