@@ -7,7 +7,7 @@ class Snippet::CardHeader < BaseComponent
         div class: "ml-4 mt-4" do
           h3 class: "text-lg flex items-center leading-6 font-medium text-gray-900" do
             span class: "mr-1" do
-              m Snippet::PublicPrivateIcon, snippet: snippet
+              mount Snippet::PublicPrivateIcon, snippet: snippet
             end
 
             text snippet.title

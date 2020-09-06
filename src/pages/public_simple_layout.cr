@@ -11,19 +11,19 @@ abstract class Public::SimpleLayout
     html_doctype
 
     html lang: "en" do
-      m Shared::LayoutHead, page_title: page_title, context: context
+      mount Shared::LayoutHead, page_title: page_title, context: context
 
       body do
         div class: "bg-gray-800" do
           if (user = current_user)
-            m Shared::Navbar, current_user: user
+            mount Shared::Navbar, current_user: user
           else
-            m Shared::GuestNavbar
+            mount Shared::GuestNavbar
           end
         end
 
         main class: "bg-gray-50" do
-          m Shared::FlashMessages, context.flash
+          mount Shared::FlashMessages, context.flash
 
           div class: "mx-auto pt-6" do
             content

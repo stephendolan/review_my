@@ -13,7 +13,7 @@ class Snippets::NewPage < Private::WrappedLayout
 
   private def render_form(op)
     form_for Snippets::Create, class: "flex-1 flex flex-col space-y-6" do
-      m Shared::Field, op.title, &.text_input(autofocus: true, placeholder: "A short and sweet summary of your snippet")
+      mount Shared::Field, op.title, &.text_input(autofocus: true, placeholder: "A short and sweet summary of your snippet")
 
       render_domain_restriction_checkbox(op)
 
@@ -26,11 +26,11 @@ class Snippets::NewPage < Private::WrappedLayout
   private def render_content_editor(op)
     div do
       div class: "hidden" do
-        m Shared::Field, op.content, &.textarea
+        mount Shared::Field, op.content, &.textarea
       end
 
-      m Shared::FieldLabel, op.content
-      m Shared::FieldErrors, op.content
+      mount Shared::FieldLabel, op.content
+      mount Shared::FieldErrors, op.content
       tag("trix-editor", input: "snippet_content", class: "trix-content", placeholder: "Your snippet content")
     end
   end
@@ -42,7 +42,7 @@ class Snippets::NewPage < Private::WrappedLayout
       end
 
       div class: "ml-3 text-sm leading-5" do
-        m Shared::FieldLabel, op.domain_restricted, "Private"
+        mount Shared::FieldLabel, op.domain_restricted, "Private"
         para "Restrict revision submissions to users with your domain (#{current_user.email_domain})", class: "text-gray-500"
       end
     end

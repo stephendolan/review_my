@@ -102,7 +102,7 @@ class Dashboard::IndexPage < Private::SimpleLayout
                 link to: Snippets::Show.with(snippet_id: snippet.slug) do
                   span class: "absolute inset-0"
                   span class: "mr-1" do
-                    m Snippet::PublicPrivateIcon, snippet: snippet
+                    mount Snippet::PublicPrivateIcon, snippet: snippet
                   end
                   text snippet.title
                 end

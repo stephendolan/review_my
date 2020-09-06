@@ -10,7 +10,7 @@ abstract class Private::SimpleLayout
     html_doctype
 
     html lang: "en" do
-      m Shared::LayoutHead, page_title: page_title, context: context
+      mount Shared::LayoutHead, page_title: page_title, context: context
 
       body do
         div class: "invisible lg:visible fixed top-0 left-0 w-1/2 h-full bg-white"
@@ -18,7 +18,7 @@ abstract class Private::SimpleLayout
 
         div class: "relative min-h-screen flex flex-col" do
           div class: "flex-shrink-0 bg-gray-800" do
-            m Shared::Navbar, current_user: current_user
+            mount Shared::Navbar, current_user: current_user
           end
 
           div class: "flex-1 flex flex-col" do

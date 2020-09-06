@@ -8,7 +8,7 @@ class Snippets::Revisions::NewPage < Public::WrappedLayout
 
   def content
     div class: "bg-white overflow-hidden shadow rounded-lg", data_controller: "diff" do
-      m Snippet::CardHeader, snippet: snippet
+      mount Snippet::CardHeader, snippet: snippet
 
       div class: "hidden", data_target: "diff.old" do
         raw snippet.content
@@ -29,16 +29,16 @@ class Snippets::Revisions::NewPage < Public::WrappedLayout
 
     form_for Snippets::Revisions::Create.with(snippet.slug), class: "space-y-6" do
       unless current_user
-        m Shared::Field, op.creator_name, "Your name", &.text_input(autofocus: true, placeholder: "Sign up to avoid entering this every time!")
+        mount Shared::Field, op.creator_name, "Your name", &.text_input(autofocus: true, placeholder: "Sign up to avoid entering this every time!")
       end
 
       div do
         op.content.value = snippet.content
         div class: "hidden" do
-          m Shared::Field, op.content, &.textarea
+          mount Shared::Field, op.content, &.textarea
         end
-        m Shared::FieldLabel, op.content, "Revised content"
-        m Shared::FieldErrors, op.content
+        mount Shared::FieldLabel, op.content, "Revised content"
+        mount Shared::FieldErrors, op.content
 
         tag "trix-editor", input: "revision_content", class: "trix-content bg-white", autofocus: true, data_target: "diff.new"
       end
