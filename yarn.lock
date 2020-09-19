@@ -6877,9 +6877,9 @@ trix@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/trix/-/trix-1.2.4.tgz#8b8f8ea58c2605ad3d04a3b82d60a994576e33a5"
 
-ts-loader@^8.0.3:
-  version "8.0.3"
-  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-8.0.3.tgz#56858f4296edf1ed55e01f8520552984d3f0911c"
+ts-loader@^8.0.4:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-8.0.4.tgz#02b9c91fbcfdb3114d8b1e98a3829265270eee7a"
   dependencies:
     chalk "^2.3.0"
     enhanced-resolve "^4.0.0"
