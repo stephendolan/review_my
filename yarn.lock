@@ -4301,9 +4301,9 @@ klona@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.3.tgz#98274552c513583ad7a01456a789a2a0b4a2a538"
 
-laravel-mix@^5.0.5:
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/laravel-mix/-/laravel-mix-5.0.5.tgz#1da6488ac3af79f248bcbc2e589dcaeb03f3dafc"
+laravel-mix@^5.0.6:
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/laravel-mix/-/laravel-mix-5.0.6.tgz#74c92052e44d6c5e265f374a8a7ca3173cf2f9a9"
   dependencies:
     "@babel/core" "^7.2.0"
     "@babel/plugin-proposal-object-rest-spread" "^7.2.0"
