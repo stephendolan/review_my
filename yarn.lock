@@ -835,9 +835,9 @@
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.2.0.tgz#b597c83502e3c3c6641a8aaabda223cd494ab349"
 
-"@tailwindcss/ui@^0.6.2":
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/@tailwindcss/ui/-/ui-0.6.2.tgz#4144aba86543bf79fefe0ea14a78a12fb315810e"
+"@tailwindcss/ui@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/ui/-/ui-0.7.0.tgz#505c7a9ceb5e408561ef8c91e045e5d9a0e9e48c"
   dependencies:
     "@tailwindcss/custom-forms" "^0.2.1"
     "@tailwindcss/typography" "^0.2.0"
