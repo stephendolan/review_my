@@ -4,7 +4,7 @@
   "dependencies": {
     "@babel/compat-data": "^7.12.1",
     "@rails/ujs": "^6.0.0",
-    "@tailwindcss/ui": "^0.7.0",
+    "@tailwindcss/ui": "^0.7.2",
     "diff-match-patch": "^1.0.5",
     "he": "^1.2.0",
     "normalize-scss": "^7.0.1",
