@@ -1,6 +1,6 @@
 # ReviewMy
 
-ReviewMy is a simple tool to solicit revisions to text content.
+ReviewMy is a simple tool to solicit revisions to text content from anonymous or logged in users.
 
 ### Setting up the project
 
