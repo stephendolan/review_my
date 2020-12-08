@@ -43,7 +43,7 @@ class Shared::Navbar < BaseComponent
         div data_toggle_target: "toggleable", class: "hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg" do
           div class: "py-1 rounded-md bg-white shadow-xs" do
             link "Your Profile", to: Me::Show, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-            link "Sign out", to: SignIns::Delete, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            link "Sign out", to: SignIns::Delete, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100", flow_id: "sign-out-button"
           end
         end
       end
@@ -81,7 +81,7 @@ class Shared::Navbar < BaseComponent
 
       div aria_labelledby: "user-menu", aria_orientation: "vertical", class: "mt-3 px-2", role: "menu" do
         link "Your Profile", to: Me::Show, class: "block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700", role: "menuitem"
-        link "Sign out", to: SignIns::Delete, class: "mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700", role: "menuitem"
+        link "Sign out", to: SignIns::Delete, class: "mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700", role: "menuitem", flow_id: "sign-out-button"
       end
     end
   end
