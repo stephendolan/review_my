@@ -113,11 +113,11 @@ class Dashboard::IndexPage < Private::SimpleLayout
           span class: "relative inline-flex rounded-md shadow-sm", data_controller: "clipboard" do
             url = Snippets::Revisions::New.with(snippet.slug).url
 
-            input class: "sr-only whitespace-pre-wrap", value: url, readonly: true, data_target: "clipboard.source"
+            input class: "sr-only whitespace-pre-wrap", value: url, readonly: true, data_clipboard_target: "source"
             button data_action: "click->clipboard#copy", class: "inline-flex items-center px-2 py-1 border border-transparent text-xs leading-4 rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150", type: "button" do
               i class: "fas fa-clipboard mr-2"
 
-              span "Copy share link", data_target: "clipboard.replace"
+              span "Copy share link", data_clipboard_target: "replace"
             end
           end
         end

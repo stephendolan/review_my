@@ -25,7 +25,7 @@ class Shared::Navbar < BaseComponent
         end
       end
 
-      div class: "hidden border-b border-gray-700 md:hidden", data_target: "toggle.toggleable" do
+      div class: "hidden border-b border-gray-700 md:hidden", data_toggle_target: "toggleable" do
         render_mobile_links
       end
     end
@@ -40,7 +40,7 @@ class Shared::Navbar < BaseComponent
           end
         end
 
-        div data_target: "toggle.toggleable", class: "hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg" do
+        div data_toggle_target: "toggleable", class: "hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg" do
           div class: "py-1 rounded-md bg-white shadow-xs" do
             link "Your Profile", to: Me::Show, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
             link "Sign out", to: SignIns::Delete, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"

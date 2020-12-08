@@ -9,15 +9,15 @@ class Revision::DiffViewer < BaseComponent
         span revision.author, class: "ml-1 font-medium"
       end
 
-      div class: "hidden", data_target: "diff.old" do
+      div class: "hidden", data_diff_target: "old" do
         raw snippet.content
       end
 
-      div class: "hidden", data_target: "diff.new" do
+      div class: "hidden", data_diff_target: "new" do
         raw revision.content
       end
 
-      div class: "mt-2 p-4 bg-white rounded-md shadow trix-content", data_target: "diff.display" do
+      div class: "mt-2 p-4 bg-white rounded-md shadow trix-content", data_diff_target: "display" do
         raw revision.content
       end
     end

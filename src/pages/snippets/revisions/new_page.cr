@@ -10,11 +10,11 @@ class Snippets::Revisions::NewPage < Public::WrappedLayout
     div class: "bg-white overflow-hidden shadow rounded-lg", data_controller: "diff" do
       mount Snippet::CardHeader, snippet: snippet
 
-      div class: "hidden", data_target: "diff.old" do
+      div class: "hidden", data_diff_target: "old" do
         raw snippet.content
       end
 
-      div class: "px-4 py-5 sm:p-6 trix-content", data_target: "diff.display" do
+      div class: "px-4 py-5 sm:p-6 trix-content", data_diff_target: "display" do
         raw snippet.content
       end
 
@@ -40,7 +40,7 @@ class Snippets::Revisions::NewPage < Public::WrappedLayout
         mount Shared::FieldLabel, op.content, "Revised content"
         mount Shared::FieldErrors, op.content
 
-        tag "trix-editor", input: "revision_content", class: "trix-content bg-white", autofocus: true, data_target: "diff.new"
+        tag "trix-editor", input: "revision_content", class: "trix-content bg-white", autofocus: true, data_diff_target: "new"
       end
 
       submit "Submit", class: "bg-indigo-500 hover:bg-indigo-700 text-gray-100 font-bold mt-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"

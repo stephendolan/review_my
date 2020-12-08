@@ -23,11 +23,11 @@ class Snippet::CardHeader < BaseComponent
           span class: "relative inline-flex rounded-md shadow-sm", data_controller: "clipboard" do
             url = Snippets::Revisions::New.with(snippet.slug).url
 
-            input class: "sr-only whitespace-pre-wrap", value: url, readonly: true, data_target: "clipboard.source"
+            input class: "sr-only whitespace-pre-wrap", value: url, readonly: true, data_clipboard_target: "source"
             button data_action: "click->clipboard#copy", class: "relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-700 active:bg-indigo-700" do
               i class: "fas fa-clipboard mr-2"
 
-              span "Copy share link", data_target: "clipboard.replace"
+              span "Copy share link", data_clipboard_target: "replace"
             end
           end
         end

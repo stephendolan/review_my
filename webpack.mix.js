@@ -48,7 +48,7 @@ mix
   // https://github.com/JeffreyWay/laravel-mix/blob/master/docs/mixjs.md
   .ts("src/js/app.ts", "public/js/app.js")
   // SASS entry file. Uses autoprefixer automatically.
-  .sass("src/css/app.scss", "public/css")
+  .sass("src/css/app.scss", "css")
   // Customize postCSS:
   // https://github.com/JeffreyWay/laravel-mix/blob/master/docs/css-preprocessors.md#postcss-plugins
   .options({
@@ -72,6 +72,7 @@ mix
       ignored: /node_modules/
     }
   })
+  .sourceMaps()
   // Disable default Mix notifications because we're using our own notifier
   .disableNotifications();
 

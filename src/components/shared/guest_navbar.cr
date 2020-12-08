@@ -19,7 +19,7 @@ class Shared::GuestNavbar < BaseComponent
         end
       end
 
-      div class: "hidden border-b border-gray-700 md:hidden", data_target: "toggle.toggleable" do
+      div class: "hidden border-b border-gray-700 md:hidden", data_toggle_target: "toggleable" do
         render_mobile_menu
       end
     end
