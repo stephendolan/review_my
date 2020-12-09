@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@babel/compat-data": "^7.12.7",
-    "@rails/ujs": "^6.0.0",
+    "@rails/ujs": "^6.1.0",
     "@tailwindcss/ui": "^0.7.2",
     "diff-match-patch": "^1.0.5",
     "he": "^1.2.0",
