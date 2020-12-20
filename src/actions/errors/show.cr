@@ -2,6 +2,8 @@
 #
 # https://luckyframework.org/guides/http-and-routing/error-handling
 class Errors::Show < Lucky::ErrorAction
+  include Authentic::ActionHelpers(User)
+
   DEFAULT_MESSAGE = "Something went wrong."
   default_format :html
   dont_report [Lucky::RouteNotFoundError, Avram::RecordNotFoundError]
@@ -57,7 +59,17 @@ class Errors::Show < Lucky::ErrorAction
     json ErrorSerializer.new(message: message, details: details, param: param), status: status
   end
 
+  # This method tells Authentic how to find the current user
+  private def find_current_user(id) : User?
+    UserQuery.new.id(id).first?
+  end
+
   private def report(error : Exception) : Nil
-    # Send to Rollbar, send an email, etc.
+    if (user = current_user)
+      Raven.user_context(
+        id: user.id.to_s,
+        email: user.email
+      )
+    end
   end
 end
