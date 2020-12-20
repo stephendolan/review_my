@@ -17,7 +17,7 @@ class Dashboard::Index < BrowserAction
   end
 
   private def revisions_by_other_users
-    base_revision_query.where_snippets(SnippetQuery.new.creator_id(current_user.id))
+    base_revision_query.where_snippet(SnippetQuery.new.creator_id(current_user.id))
   end
 
   private def base_revision_query
