@@ -27,7 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "@typescript-eslint/parser": "^4.12.0",
     "browser-sync": "^2.26.13",
-    "compression-webpack-plugin": "^7.1.1",
+    "compression-webpack-plugin": "^7.1.2",
     "eslint": "^7.17.0",
     "laravel-mix": "^6.0.9",
     "postcss": "^8.2",
