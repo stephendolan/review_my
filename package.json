@@ -2,7 +2,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@babel/compat-data": "^7.12.7",
+    "@babel/compat-data": "^7.12.13",
     "@rails/ujs": "^6.1.1",
     "@tailwindcss/ui": "^0.7.2",
     "diff-match-patch": "^1.0.5",
