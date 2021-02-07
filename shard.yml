@@ -5,7 +5,7 @@ authors:
   - Stephen Dolan <stephen@stephencodes.com>
 
 targets:
-  review_my:
+  webserver:
     main: src/review_my.cr
 
 crystal: 0.36.1
