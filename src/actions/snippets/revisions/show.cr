@@ -1,5 +1,5 @@
 class Snippets::Revisions::Show < BrowserAction
-  nested_route do
+  get "/snippets/:snippet_id/revisions/:revision_id" do
     revision = RevisionQuery.new
       .preload_snippet(SnippetQuery.new.preload_creator)
       .preload_creator

@@ -1,10 +1,9 @@
 class Snippets::Revisions::Create < BrowserAction
   include Auth::AllowGuests
 
-  nested_route do
+  post "/snippets/:snippet_id/revisions" do
     snippet = SnippetQuery.find(snippet_id)
     user = current_user
-    flash.keep
 
     if snippet.domain_restricted? && (user.nil? || snippet.creator.email_domain != user.email_domain)
       flash.failure = "That snippet is private. Sign in to add a revision!"

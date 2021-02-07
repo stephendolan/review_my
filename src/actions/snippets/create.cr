@@ -1,5 +1,5 @@
 class Snippets::Create < BrowserAction
-  route do
+  post "/snippets" do
     SaveSnippet.create(params, current_user: current_user) do |operation, snippet|
       if snippet
         redirect to: Dashboard::Index

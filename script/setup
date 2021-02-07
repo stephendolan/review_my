@@ -27,9 +27,6 @@ if [ ! -f ".env" ]; then
   print_done
 fi
 
-notice "Spinning up Docker Compose"
-docker-compose up -d | indent
-
 notice "Creating the database"
 lucky db.create | indent
 
@@ -42,9 +39,6 @@ lucky db.migrate | indent
 notice "Seeding the database with required and sample records"
 lucky db.seed.required_data | indent
 lucky db.seed.sample_data | indent
-
-notice "Spinning down Docker Compose"
-docker-compose down | indent
 
 print_done
 notice "Run 'lucky dev' to start the app"

@@ -1,7 +1,7 @@
 class Dashboard::Index < BrowserAction
   RECENT_ACTIVITY_LIMIT = 10
 
-  route do
+  get "/dashboard" do
     html Dashboard::IndexPage, snippets: snippets, activities: recent_activity, snippet_count: SnippetQuery.new.creator_id(current_user.id).select_count
   end
 

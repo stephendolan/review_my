@@ -8,17 +8,17 @@ targets:
   review_my:
     main: src/review_my.cr
 
-crystal: 0.35.1
+crystal: 0.36.1
 
 dependencies:
   raven:
     github: "Sija/raven.cr"
   lucky:
     github: luckyframework/lucky
-    version: ~> 0.25.0
+    version: ~> 0.26.0
   authentic:
     github: luckyframework/authentic
-    version: ~> 0.7.1
+    version: ~> 0.7.2
   carbon:
     github: luckyframework/carbon
     version: ~> 0.1.2
@@ -27,7 +27,7 @@ dependencies:
     version: ~> 0.7.0
   lucky_flow:
     github: luckyframework/lucky_flow
-    version: ~> 0.7.1
+    version: ~> 0.7.2
   jwt:
     github: crystal-community/jwt
-    version: ~> 1.4.2
+    version: ~> 1.5.0

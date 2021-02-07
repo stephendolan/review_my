@@ -3,7 +3,6 @@ class SignUpConfirmations::Show < BrowserAction
 
   get "/confirm/:token" do
     user = UserQuery.new.confirmation_token(token).first?
-    flash.keep
 
     if user && user.confirmed?
       flash.info = "You've already confirmed your email! Please sign in."
