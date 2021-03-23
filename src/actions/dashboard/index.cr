@@ -8,7 +8,7 @@ class Dashboard::Index < BrowserAction
   private def recent_activity
     (revisions_by_other_users.to_a + revisions_by_current_user.to_a)
       .sort_by(&.created_at)
-      .reverse
+      .reverse!
       .first(RECENT_ACTIVITY_LIMIT)
   end
 

@@ -19,7 +19,7 @@ class SaveSnippet < Snippet::SaveOperation
     slug_value = random_slug
     iterations = 0
 
-    while SnippetQuery.new.slug(slug_value).any? && iterations < 5
+    while !SnippetQuery.new.slug(slug_value).empty? && iterations < 5
       slug_value = random_slug
       iterations += 1
     end
