@@ -2,7 +2,7 @@ version: 2.0
 shards:
   ameba:
     git: https://github.com/crystal-ameba/ameba.git
-    version: 0.14.1+git.commit.6aaf398c4326c125874ba192da452270276bd184
+    version: 0.14.1+git.commit.04ba9cd57ac926537e955d162980d3f6cab47113
 
   any_hash:
     git: https://github.com/Sija/any_hash.cr.git
@@ -62,7 +62,7 @@ shards:
 
   habitat:
     git: https://github.com/luckyframework/habitat.git
-    version: 0.4.6
+    version: 0.4.7
 
   jwt:
     git: https://github.com/crystal-community/jwt.git
@@ -86,7 +86,7 @@ shards:
 
   openssl_ext:
     git: https://github.com/spider-gazelle/openssl_ext.git
-    version: 2.1.3
+    version: 2.1.4
 
   pg:
     git: https://github.com/will/crystal-pg.git
@@ -102,7 +102,7 @@ shards:
 
   selenium:
     git: https://github.com/matthewmcgarvey/selenium.cr.git
-    version: 0.9.0
+    version: 0.9.1
 
   shell-table:
     git: https://github.com/luckyframework/shell-table.cr.git
