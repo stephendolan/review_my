@@ -30,7 +30,7 @@
     "compression-webpack-plugin": "^7.1.2",
     "eslint": "^7.26.0",
     "laravel-mix": "^6.0.19",
-    "postcss": "^8.2",
+    "postcss": "^8.3",
     "prettier": "^2.3.0",
     "resolve-url-loader": "4.0.0",
     "sass": "1.32.13",
