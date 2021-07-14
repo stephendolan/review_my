@@ -22,7 +22,7 @@
   "devDependencies": {
     "@types/diff-match-patch": "^1.0.32",
     "@types/he": "^1.1.2",
-    "@types/node": "^16.3.1",
+    "@types/node": "^16.3.2",
     "@types/webpack-env": "^1.16.2",
     "@typescript-eslint/eslint-plugin": "^4.28.3",
     "@typescript-eslint/parser": "^4.28.3",
